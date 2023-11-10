@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 09966b8f5016f734c86e567ae35b3bf0
+guid: 7f56ca64087b9504d91488c78cb4deb5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -101,21 +101,156 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: plane_Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 972
+        width: 2540
+        height: 1052
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26313be6beb65584095496abb8f69d17
+      internalID: -1857729438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plane_Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 42
+        width: 331
+        height: 968
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51b97ae0d57304242a1b689b09c5cf94
+      internalID: -1380579722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plane_Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 56
+        width: 134
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b1bc206ecfccef4787bf9b5d3289dde
+      internalID: -1587867411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plane_Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 25
+        width: 272
+        height: 272
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ed981164b26de0468b6028b8f9ffd35
+      internalID: 1604332232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plane_Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 124
+        width: 216
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bdd6ee33767f2e4d956437e3edf21dc
+      internalID: -1774045704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plane_Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 61
+        width: 438
+        height: 282
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: def1dc411adcefd4792c769090d48934
+      internalID: 490918042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plane_Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 2197
+        y: 64
+        width: 584
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 738430fe96a4c0e4c9560627f5c76d32
+      internalID: -707891023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -126,7 +261,14 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      plane_Sheet_0: -1857729438
+      plane_Sheet_1: -1380579722
+      plane_Sheet_2: -1587867411
+      plane_Sheet_3: 1604332232
+      plane_Sheet_4: -1774045704
+      plane_Sheet_5: 490918042
+      plane_Sheet_6: -707891023
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 1
