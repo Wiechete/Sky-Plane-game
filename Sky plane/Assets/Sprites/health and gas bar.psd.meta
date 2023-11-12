@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f9340697d8aa38644a2194585c6f6c00
+guid: 329f277a5072de249adc0a0523146ed6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,64 +105,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemy_plane_sheet_0
+      name: health and gas bar_0
       rect:
         serializedVersion: 2
-        x: 212
-        y: 266
-        width: 104
-        height: 444
+        x: 300
+        y: 488
+        width: 260
+        height: 213
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29b12b6345a05c9418b68720d99ae31f
-      internalID: -1059791002
+      spriteID: 6a7247795f193234793f60cf110cc54d
+      internalID: -1582303175
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_plane_sheet_1
+      name: health and gas bar_1
       rect:
         serializedVersion: 2
-        x: 1141
-        y: 675
-        width: 368
-        height: 220
+        x: 799
+        y: 537
+        width: 1016
+        height: 134
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03d5b9b6d73c8a44e8da798d821b7790
-      internalID: -223373613
+      spriteID: 29375159ffd730b46953eeaa39890f10
+      internalID: -1972699192
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_plane_sheet_2
+      name: health and gas bar_2
       rect:
         serializedVersion: 2
-        x: 520
-        y: 209
-        width: 1019
-        height: 440
+        x: 334
+        y: 220
+        width: 180
+        height: 190
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d3d34648a07f9c4ab41d51e462c521a
-      internalID: -590224333
+      spriteID: e7f736f51e76dae47a83107e65522ea0
+      internalID: 794771866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: health and gas bar_3
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 246
+        width: 1016
+        height: 134
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53392dcf448f9084f9ea993e8306e0cf
+      internalID: 653278510
       vertices: []
       indices: 
       edges: []
@@ -178,9 +199,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      enemy_plane_sheet_0: -1059791002
-      enemy_plane_sheet_1: -223373613
-      enemy_plane_sheet_2: -590224333
+      health and gas bar_0: -1582303175
+      health and gas bar_1: -1972699192
+      health and gas bar_2: 794771866
+      health and gas bar_3: 653278510
+      health and gas bar_4: -1693107964
+      health and gas bar_5: -703386651
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 1
