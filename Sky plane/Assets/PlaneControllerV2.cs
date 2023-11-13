@@ -25,14 +25,38 @@ public class PlaneControllerV2 : MonoBehaviour
     float previuosSpeed = 0;
     float naturalRotation = 0;
 
+    [SerializeField] private Transform smallWheel;
+    [SerializeField] private Transform bigWheel;
+    [SerializeField] private Transform smallWheelOrigin;
+    [SerializeField] private Transform bigWheelOrigin;
+    [SerializeField] private Transform bigWheelVisual;
+    [SerializeField] private Transform smallWheelVisual;
+
+    private Vector3 smallWheelLenght;
+    private Vector3 bigWheelLenght;
+
+    [SerializeField] private float suspensionMult;
+    [SerializeField] private float dumpingForce;
+
+    [SerializeField] private LayerMask layerMask;
+
+    bool isOnGround = false;
+    float framesSinceOnGround = 0;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = new Vector3(planeInitialSpeed, 0);
+
+        smallWheelLenght = smallWheel.localPosition - smallWheelOrigin.localPosition;
+        bigWheelLenght = bigWheel.localPosition - bigWheelOrigin.localPosition;
+
+        Debug.Log(smallWheelLenght + "   " + bigWheelLenght);
     }
 
     void FixedUpdate()
     {
+        framesSinceOnGround++;
         if (rb.velocity.x < 0) rb.velocity = new Vector2(0, rb.velocity.y);
         
 
@@ -67,21 +91,72 @@ public class PlaneControllerV2 : MonoBehaviour
 
         float planeSpeed = rb.velocity.magnitude;
 
-        float desiredRotation = planeMaxZRotation * vertical;        
-        float naturalRotation = 0;
+        float desiredRotation = planeMaxZRotation * vertical;
+        if(desiredRotation < 0 && isOnGround) desiredRotation = 0;
+        if (isOnGround) naturalRotation = 0;
         if ((planeSpeed - previuosSpeed) < 0) naturalRotation += (planeSpeed - previuosSpeed) * planeNaturalRotationMult;
-        if(naturalRotation < 0 && vertical > 0) naturalRotation += (desiredRotation + naturalRotation - planeRotationZ) * planeRotationSpeed / 100;
-
-        rb.MoveRotation(planeRotationZ + (desiredRotation + naturalRotation - planeRotationZ) * planeRotationSpeed / 100);
+        if(naturalRotation < 0 && (vertical > 0 || horizontal > 0)) naturalRotation += Mathf.Abs(planeSpeed - previuosSpeed) * planeNaturalRotationMult;
+        //Debug.Log(planeSpeed - previuosSpeed + "   " + naturalRotation);
+        if (!isOnGround)
+        {
+            float currentRotationChange = (desiredRotation + naturalRotation - planeRotationZ) * planeRotationSpeed / 100;
+            if (framesSinceOnGround > 0 && framesSinceOnGround < 100) currentRotationChange *= framesSinceOnGround / 100;
+            rb.MoveRotation(planeRotationZ + currentRotationChange);
+        }
+        
+            
 
 
         rb.gravityScale = planeGravityBySpeed.Evaluate(1 - rb.velocity.magnitude / planeMaxSpeed * 1.5f);
-        previuosSpeed = planeSpeed;        
+        previuosSpeed = planeSpeed;
+
+        RaycastHit2D hit = Physics2D.Raycast(smallWheelOrigin.position, smallWheelLenght.normalized, smallWheelLenght.magnitude, layerMask);
+        bool didSmallWheelTouch = hit.collider;
+        if (hit.collider)
+        {
+            Debug.DrawRay(smallWheelOrigin.position, smallWheelLenght.normalized * hit.distance, Color.yellow, 0.1f);
+            Vector3 suspensionForce = GetSuspensionForce(-smallWheelLenght.normalized, smallWheelOrigin.position, hit.distance, smallWheelLenght.magnitude, suspensionMult, dumpingForce * 5);
+            rb.AddForceAtPosition(suspensionForce, smallWheelOrigin.position);
+            smallWheelVisual.transform.position = hit.point;
+        }
+        else
+        {
+            Debug.DrawRay(smallWheelOrigin.position, smallWheelLenght.normalized * smallWheelLenght.magnitude, Color.blue, 0.1f);
+        }
+        hit = Physics2D.Raycast(bigWheelOrigin.position, bigWheelLenght.normalized, bigWheelLenght.magnitude, layerMask);
+        bool didBigWheelTouch = hit.collider;
+        if (hit.collider)
+        {
+
+            Debug.DrawRay(bigWheelOrigin.position, bigWheelLenght.normalized * hit.distance, Color.yellow, 0.1f);
+            Vector3 suspensionForce = GetSuspensionForce(-bigWheelLenght.normalized, bigWheelOrigin.position, hit.distance, bigWheelLenght.magnitude, suspensionMult, dumpingForce);    
+
+            rb.AddForceAtPosition(suspensionForce, bigWheelOrigin.position);
+            bigWheelVisual.transform.position = hit.point;
+        }
+        else
+        {
+            Debug.DrawRay(bigWheelOrigin.position, bigWheelLenght.normalized * bigWheelLenght.magnitude, Color.blue, 0.1f);
+        }
+        isOnGround = didBigWheelTouch;
+        if(isOnGround) framesSinceOnGround = 0;
     }
     float GetPlaneRotation()
     {
         float planeRotationZ = transform.eulerAngles.z;
         if (planeRotationZ > 180) planeRotationZ -= 360;
         return planeRotationZ;
+    }
+
+    Vector3 GetSuspensionForce(Vector3 springDirection, Vector3 wheelPosition, float hitDistance, float suspensionRestDistance, float suspensionForce, float suspesionDumping)
+    {
+        Vector3 tireWorldVelocity = rb.GetPointVelocity(wheelPosition);
+
+        float offset = suspensionRestDistance - hitDistance;
+        float velocity = Vector3.Dot(springDirection, tireWorldVelocity);
+
+        float force = (offset * suspensionForce) - (velocity * suspesionDumping);
+
+        return springDirection * force;
     }
 }
