@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 53dd3078e8a2cb74e840b7d159903cb7
+guid: 54e5cd2d00e640549bfe4541c849a944
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -108,8 +108,8 @@ TextureImporter:
       name: balloons_sheet_0
       rect:
         serializedVersion: 2
-        x: 110
-        y: 376
+        x: 3
+        y: 388
         width: 413
         height: 686
       alignment: 0
@@ -119,8 +119,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a41c7f8d204e6544e8487331ef07e0f3
-      internalID: -1437621240
+      spriteID: 55c90c0a514b43645bf68b65776e9938
+      internalID: -313133126
       vertices: []
       indices: 
       edges: []
@@ -129,8 +129,29 @@ TextureImporter:
       name: balloons_sheet_1
       rect:
         serializedVersion: 2
-        x: 755
-        y: 405
+        x: 521
+        y: 412
+        width: 413
+        height: 657
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f06dd6fd80fe43e4282b8001cf0043a2
+      internalID: -1501486827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: balloons_sheet_2
+      rect:
+        serializedVersion: 2
+        x: 1074
+        y: 427
         width: 413
         height: 645
       alignment: 0
@@ -140,18 +161,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0be639fd540322d4faedada263682909
-      internalID: 1571483824
+      spriteID: 6429a90505161814d97f5843859f3995
+      internalID: 2089479879
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: balloons_sheet_2
+      name: balloons_sheet_3
       rect:
         serializedVersion: 2
-        x: 1375
-        y: 390
+        x: 1498
+        y: 408
         width: 417
         height: 665
       alignment: 0
@@ -161,8 +182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 66e209be71df5b043b7d3473a218c99c
-      internalID: 1491311860
+      spriteID: 69aa526e57a818c42bf7a52de74225d9
+      internalID: 608692679
       vertices: []
       indices: 
       edges: []
@@ -178,9 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      balloons_sheet_0: -1437621240
-      balloons_sheet_1: 1571483824
-      balloons_sheet_2: 1491311860
+      balloons_sheet_0: -313133126
+      balloons_sheet_1: -1501486827
+      balloons_sheet_2: 2089479879
+      balloons_sheet_3: 608692679
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 1
