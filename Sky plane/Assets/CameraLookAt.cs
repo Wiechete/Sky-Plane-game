@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraLookAt : MonoBehaviour
 {
-    public PlaneController playerPlane;
+    public PlaneControllerV2 playerPlane;
     public Vector3 cameraOffset;
 
     private void FixedUpdate()
