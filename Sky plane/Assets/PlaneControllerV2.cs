@@ -42,6 +42,7 @@ public class PlaneControllerV2 : MonoBehaviour
 
     bool isOnGround = false;
     float framesSinceOnGround = 0;
+    public float currentSpeed;
 
     void Start()
     {
@@ -56,6 +57,7 @@ public class PlaneControllerV2 : MonoBehaviour
 
     void FixedUpdate()
     {
+        currentSpeed = Vector3.Dot(rb.velocity, Vector3.right);
         framesSinceOnGround++;
         if (rb.velocity.x < 0) rb.velocity = new Vector2(0, rb.velocity.y);
         
