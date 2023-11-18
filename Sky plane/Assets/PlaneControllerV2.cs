@@ -39,6 +39,7 @@ public class PlaneControllerV2 : MonoBehaviour
     bool isOnGround = false;
     float framesSinceOnGround = 0;
     public float currentSpeed;
+    public FuelBar fuelBar;
 
     [SerializeField] private float planeFuelUsageMult;
     [SerializeField] private float planeFuel;
@@ -179,6 +180,7 @@ public class PlaneControllerV2 : MonoBehaviour
         }
 
         planeFuel -= fuelUsage;
+        fuelBar.SetFuel(planeFuel);
         UIManager.healthFuelUI.UpdateUI(planeHP, planeMaxHP, planeFuel, planeMaxFuel);
     }
 
