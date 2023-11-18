@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c094718081cc84a438622d197478a110
+guid: b15feba4ef287f14788c909babb49ecf
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,7 +105,28 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: weapons_sheet_0
+      name: resources_sheet_0
+      rect:
+        serializedVersion: 2
+        x: 823
+        y: 642
+        width: 325
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c5bb9a112d0e5444a20931e16b85d8b
+      internalID: 680974233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: resources_sheet_1
       rect:
         serializedVersion: 2
         x: 145
@@ -119,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92a6d66f85720ec41a1bb5b9cc124905
-      internalID: 857325668
+      spriteID: 3f98ee6b2ec20304eaa1d387607883b0
+      internalID: 1239593109
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: weapons_sheet_1
+      name: resources_sheet_2
       rect:
         serializedVersion: 2
         x: 665
@@ -140,14 +161,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c71f069e8edf808479eb1dc6688542f3
-      internalID: -870687
+      spriteID: 52c5badbb75896048bbcb1a280e43efa
+      internalID: -1821728790
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: weapons_sheet_2
+      name: resources_sheet_3
       rect:
         serializedVersion: 2
         x: 1169
@@ -161,14 +182,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd8a3661ccfc66845a173d3839d9fc21
-      internalID: 457328658
+      spriteID: 2e0eff9524420164f92e45014f044d37
+      internalID: 1224995055
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: weapons_sheet_3
+      name: resources_sheet_4
       rect:
         serializedVersion: 2
         x: 1552
@@ -182,8 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f99b680b20bcc74e81bb45b9b85729b
-      internalID: 689360981
+      spriteID: 80e651d0711dc9944b1b7d0cfc40e311
+      internalID: 261297364
       vertices: []
       indices: 
       edges: []
@@ -199,10 +220,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      weapons_sheet_0: 857325668
-      weapons_sheet_1: -870687
-      weapons_sheet_2: 457328658
-      weapons_sheet_3: 689360981
+      resources_sheet_0: 680974233
+      resources_sheet_1: 1239593109
+      resources_sheet_2: -1821728790
+      resources_sheet_3: 1224995055
+      resources_sheet_4: 261297364
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 1
