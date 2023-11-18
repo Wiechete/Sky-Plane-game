@@ -4,30 +4,38 @@ using UnityEngine;
 
 public class SpawnIsland : MonoBehaviour
 {
-    public GameObject Island;
-    public PlaneControllerV2 islandMovementSpeed;
-    public float maxX;
-    public float minX;
-    public float maxY;
-    public float minY;
+    public GameObject[] islandsPrefabs;
+    List<GameObject> islands = new List<GameObject>();
+    public PlaneControllerV2 planeController;
+
+    public Vector2 minPosition;
+    public Vector2 maxPosition;
+
+    public LayerMask layerMask;
+
     public float timeBetweenSpawn;
-    private float spawnTime;
 
-
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        transform.position += new Vector3(islandMovementSpeed.currentSpeed * Time.deltaTime, 0, 0);
-        if (Time.time > spawnTime)
-        {
-            Spawn();
-            spawnTime = Time.time + timeBetweenSpawn;
-        }
+        StartCoroutine("Spawn");
     }
-    void Spawn()
+
+    IEnumerator Spawn()
     {
-        float randomX = Random.Range(minX, maxX);
-        float randomY = Random.Range(minY, maxY);
-        Instantiate(Island, transform.position + new Vector3(randomX, randomY, 0), transform.rotation);
+        yield return new WaitForSeconds(timeBetweenSpawn);
+
+        for(int i = 0; i < 5; i++){
+            Vector3 position = new Vector2(Random.Range(minPosition.x, maxPosition.x), Random.Range(minPosition.y, maxPosition.y));
+            position += planeController.transform.position;
+            if (position.y < -6) position.y = -6;
+
+            GameObject island = islandsPrefabs[Random.Range(0, islandsPrefabs.Length)];
+            Vector2 size = island.GetComponent<BoxCollider2D>().size;
+            if(Physics2D.OverlapBox(position, size, 0, layerMask) == null){
+                islands.Add(Instantiate(island, transform.position + position, Quaternion.identity));
+                break;
+            }
+        }
+        StartCoroutine("Spawn");
     }
 }
