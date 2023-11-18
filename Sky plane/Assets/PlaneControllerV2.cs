@@ -14,10 +14,6 @@ public class PlaneControllerV2 : MonoBehaviour
     [SerializeField] private AnimationCurve planeGravityBySpeed;
     [SerializeField] private float planeUpForceMult;
 
-
-    [SerializeField] private float planeFuel;
-    [SerializeField] private float planeMaxFuel;
-
     [SerializeField] private float planeMaxZRotation;
 
     private Rigidbody2D rb;
@@ -44,6 +40,13 @@ public class PlaneControllerV2 : MonoBehaviour
     float framesSinceOnGround = 0;
     public float currentSpeed;
 
+    [SerializeField] private float planeFuelUsageMult;
+    [SerializeField] private float planeFuel;
+    [SerializeField] private int planeMaxFuel;
+
+    [SerializeField] private float planeHP;
+    [SerializeField] private int planeMaxHP;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -51,15 +54,13 @@ public class PlaneControllerV2 : MonoBehaviour
 
         smallWheelLenght = smallWheel.localPosition - smallWheelOrigin.localPosition;
         bigWheelLenght = bigWheel.localPosition - bigWheelOrigin.localPosition;
-
-        Debug.Log(smallWheelLenght + "   " + bigWheelLenght);
     }
 
     void FixedUpdate()
     {
         currentSpeed = Vector3.Dot(rb.velocity, Vector3.right);
         framesSinceOnGround++;
-        if (rb.velocity.x < 0) rb.velocity = new Vector2(0, rb.velocity.y);
+        //if (rb.velocity.x < 0) rb.velocity = new Vector2(0, rb.velocity.y);
         
 
         float horizontal = Input.GetAxis("Horizontal");
@@ -71,12 +72,13 @@ public class PlaneControllerV2 : MonoBehaviour
 
         if (planeRotationZ < -planeMaxZRotation)
         {
-            transform.eulerAngles = new Vector3(0, 0, -planeMaxZRotation);
+            //transform.eulerAngles = new Vector3(0, 0, -planeMaxZRotation);
             planeRotationZ = -planeMaxZRotation;
+            naturalRotation = 0;
         }
         if (planeRotationZ > planeMaxZRotation)
         {
-            transform.eulerAngles = new Vector3(0, 0, planeMaxZRotation);
+            //transform.eulerAngles = new Vector3(0, 0, planeMaxZRotation);
             planeRotationZ = planeMaxZRotation;
         }
 
@@ -101,6 +103,7 @@ public class PlaneControllerV2 : MonoBehaviour
         //Debug.Log(planeSpeed - previuosSpeed + "   " + naturalRotation);
         if (!isOnGround)
         {
+            Debug.Log(desiredRotation + "  " + naturalRotation + "  " + planeRotationZ);
             float currentRotationChange = (desiredRotation + naturalRotation - planeRotationZ) * planeRotationSpeed / 100;
             if (framesSinceOnGround > 0 && framesSinceOnGround < 100) currentRotationChange *= framesSinceOnGround / 100;
             rb.MoveRotation(planeRotationZ + currentRotationChange);
@@ -123,6 +126,7 @@ public class PlaneControllerV2 : MonoBehaviour
         }
         else
         {
+            smallWheelVisual.transform.position = smallWheel.position;
             Debug.DrawRay(smallWheelOrigin.position, smallWheelLenght.normalized * smallWheelLenght.magnitude, Color.blue, 0.1f);
         }
         hit = Physics2D.Raycast(bigWheelOrigin.position, bigWheelLenght.normalized, bigWheelLenght.magnitude, layerMask);
@@ -138,10 +142,13 @@ public class PlaneControllerV2 : MonoBehaviour
         }
         else
         {
+            bigWheelVisual.transform.position = bigWheel.position;
             Debug.DrawRay(bigWheelOrigin.position, bigWheelLenght.normalized * bigWheelLenght.magnitude, Color.blue, 0.1f);
         }
         isOnGround = didBigWheelTouch;
         if(isOnGround) framesSinceOnGround = 0;
+
+        CalculateFuelUsage(horizontal, planeRotationZ);
     }
     float GetPlaneRotation()
     {
@@ -160,5 +167,47 @@ public class PlaneControllerV2 : MonoBehaviour
         float force = (offset * suspensionForce) - (velocity * suspesionDumping);
 
         return springDirection * force;
+    }
+
+    void CalculateFuelUsage(float horizontal, float planeRotationZ)
+    {
+        float fuelUsage = 0;
+
+        if (horizontal > 0){
+            fuelUsage += horizontal * Time.fixedDeltaTime * planeFuelUsageMult;
+            
+        }
+
+        planeFuel -= fuelUsage;
+        UIManager.healthFuelUI.UpdateUI(planeHP, planeMaxHP, planeFuel, planeMaxFuel);
+    }
+
+    public void AddFuel(int fuelAmount)
+    {
+        planeFuel += fuelAmount;
+        if(planeFuel > planeMaxFuel) planeFuel = planeMaxFuel;
+        UIManager.healthFuelUI.UpdateUI(planeHP, planeMaxHP, planeFuel, planeMaxFuel);
+    }
+    public void AddHP(int HPAmount)
+    {
+        planeHP += HPAmount;
+        if (planeHP > planeMaxHP) planeHP = planeMaxHP;
+        UIManager.healthFuelUI.UpdateUI(planeHP, planeMaxHP, planeFuel, planeMaxFuel);
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        ContactPoint2D[] contacts = new ContactPoint2D[collision.contactCount];
+        collision.GetContacts(contacts);
+        float totalImpulse = 0;
+        foreach (ContactPoint2D contact in contacts)
+        {
+            totalImpulse += contact.normalImpulse;
+        }
+        //Debug.Log(totalImpulse);
+        if (totalImpulse > 20) totalImpulse *= 1.5f;
+        planeHP -= totalImpulse;
+        UIManager.healthFuelUI.UpdateUI(planeHP, planeMaxHP, planeFuel, planeMaxFuel);
     }
 }

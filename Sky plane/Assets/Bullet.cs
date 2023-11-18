@@ -6,11 +6,19 @@ public class Bullet : MonoBehaviour
 {
     public float bulletSpeed;
     public float damage;
-    
-    void Update()
+
+    public float startingVelocity;
+
+    private void Start()
+    {        
+        Destroy(gameObject, 2);
+    }
+
+    void FixedUpdate()
     {
-        transform.position += transform.right * bulletSpeed * Time.deltaTime;
-        //Debug.Log(transform.right * bulletSpeed * Time.deltaTime);
+        transform.position += transform.right * (bulletSpeed + startingVelocity) * Time.deltaTime;
+        
+        
     }
 
 

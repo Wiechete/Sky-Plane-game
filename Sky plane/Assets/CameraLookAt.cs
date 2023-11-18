@@ -10,5 +10,7 @@ public class CameraLookAt : MonoBehaviour
     private void FixedUpdate()
     {
         transform.position = playerPlane.transform.position + cameraOffset;
+        if(transform.position.y <= 0.375f)
+            transform.position =new Vector3(transform.position.x, 0.375f, transform.position.z);
     }
 }

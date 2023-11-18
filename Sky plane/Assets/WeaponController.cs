@@ -20,6 +20,7 @@ public class WeaponController : MonoBehaviour
     private void Shoot(){
         GameObject bullet = Instantiate(bulletPrefabs[currentWeapon]);
         bullet.transform.position = shootPositions[currentWeapon].position;
-        bullet.transform.forward = transform.forward;
+        bullet.transform.right = transform.right;
+        bullet.GetComponent<Bullet>().startingVelocity = Vector3.Dot(GetComponent<Rigidbody2D>().velocity, transform.right);
     }
 }
