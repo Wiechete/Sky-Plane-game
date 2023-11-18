@@ -10,6 +10,8 @@ public class WeaponController : MonoBehaviour
 
     [SerializeField] private int currentWeapon = 0;
 
+    [SerializeField] private Transform bulletsParent;
+
     private void Update()
     {
         if(Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)) {
@@ -18,9 +20,16 @@ public class WeaponController : MonoBehaviour
     }
 
     private void Shoot(){
-        GameObject bullet = Instantiate(bulletPrefabs[currentWeapon]);
+        GameObject bullet = Instantiate(bulletPrefabs[currentWeapon], bulletsParent);
         bullet.transform.position = shootPositions[currentWeapon].position;
         bullet.transform.right = transform.right;
         bullet.GetComponent<Bullet>().startingVelocity = Vector3.Dot(GetComponent<Rigidbody2D>().velocity, transform.right);
+    }
+
+    public void ChangeWeapon(int index){
+
+        weaponsTr[currentWeapon].gameObject.SetActive(false);
+        currentWeapon = index;
+        weaponsTr[currentWeapon].gameObject.SetActive(true);
     }
 }

@@ -100,10 +100,8 @@ public class PlaneControllerV2 : MonoBehaviour
         if (isOnGround) naturalRotation = 0;
         if ((planeSpeed - previuosSpeed) < 0) naturalRotation += (planeSpeed - previuosSpeed) * planeNaturalRotationMult;
         if(naturalRotation < 0 && (vertical > 0 || horizontal > 0)) naturalRotation += Mathf.Abs(planeSpeed - previuosSpeed) * planeNaturalRotationMult;
-        //Debug.Log(planeSpeed - previuosSpeed + "   " + naturalRotation);
         if (!isOnGround)
         {
-            Debug.Log(desiredRotation + "  " + naturalRotation + "  " + planeRotationZ);
             float currentRotationChange = (desiredRotation + naturalRotation - planeRotationZ) * planeRotationSpeed / 100;
             if (framesSinceOnGround > 0 && framesSinceOnGround < 100) currentRotationChange *= framesSinceOnGround / 100;
             rb.MoveRotation(planeRotationZ + currentRotationChange);

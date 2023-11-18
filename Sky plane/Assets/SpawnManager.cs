@@ -6,6 +6,10 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject[] islandsPrefabs;
     public GameObject[] balloonsPrefabs;
+
+    public Transform islandsParent;
+    public Transform balloonsParent;
+
     List<GameObject> islands = new List<GameObject>();
     List<GameObject> balloons = new List<GameObject>();
     public PlaneControllerV2 planeController;
@@ -49,7 +53,7 @@ public class SpawnManager : MonoBehaviour
             Vector2 size = island.GetComponent<BoxCollider2D>().size * island.transform.localScale;
             if (Physics2D.OverlapBox(position, size, 0, layerMask) == null)
             {
-                islands.Add(Instantiate(island, transform.position + position, Quaternion.identity));
+                islands.Add(Instantiate(island, transform.position + position, Quaternion.identity, islandsParent));
                 break;
             }
         }
@@ -65,7 +69,7 @@ public class SpawnManager : MonoBehaviour
             Vector2 size = balloon.GetComponent<BoxCollider2D>().size * balloon.transform.localScale;
             if (Physics2D.OverlapBox(position, size, 0, layerMask) == null)
             {
-                balloons.Add(Instantiate(balloon, transform.position + position, Quaternion.identity));
+                balloons.Add(Instantiate(balloon, transform.position + position, Quaternion.identity, balloonsParent));
                 break;
             }
         }
