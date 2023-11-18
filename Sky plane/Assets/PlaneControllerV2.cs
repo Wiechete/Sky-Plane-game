@@ -14,10 +14,6 @@ public class PlaneControllerV2 : MonoBehaviour
     [SerializeField] private AnimationCurve planeGravityBySpeed;
     [SerializeField] private float planeUpForceMult;
 
-
-    [SerializeField] private float planeFuel;
-    [SerializeField] private float planeMaxFuel;
-
     [SerializeField] private float planeMaxZRotation;
 
     private Rigidbody2D rb;
@@ -43,6 +39,13 @@ public class PlaneControllerV2 : MonoBehaviour
     bool isOnGround = false;
     float framesSinceOnGround = 0;
     public float currentSpeed;
+
+    [SerializeField] private float planeFuelUsageMult;
+    [SerializeField] private float planeFuel;
+    [SerializeField] private int planeMaxFuel;
+
+    [SerializeField] private float planeHP;
+    [SerializeField] private int planeMaxHP;
 
     void Start()
     {
@@ -142,6 +145,8 @@ public class PlaneControllerV2 : MonoBehaviour
         }
         isOnGround = didBigWheelTouch;
         if(isOnGround) framesSinceOnGround = 0;
+
+        CalculateFuelUsage(horizontal, planeRotationZ);
     }
     float GetPlaneRotation()
     {
@@ -160,5 +165,34 @@ public class PlaneControllerV2 : MonoBehaviour
         float force = (offset * suspensionForce) - (velocity * suspesionDumping);
 
         return springDirection * force;
+    }
+
+    void CalculateFuelUsage(float horizontal, float planeRotationZ)
+    {
+        float fuelUsage = 0;
+
+        if (horizontal > 0){
+            fuelUsage += horizontal * Time.fixedDeltaTime * planeFuelUsageMult;
+            
+        }
+
+        planeFuel -= fuelUsage;
+        UIManager.healthFuelUI.UpdateUI(planeHP, planeMaxHP, planeFuel, planeMaxFuel);
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        ContactPoint2D[] contacts = new ContactPoint2D[collision.contactCount];
+        collision.GetContacts(contacts);
+        float totalImpulse = 0;
+        foreach (ContactPoint2D contact in contacts)
+        {
+            totalImpulse += contact.normalImpulse;
+        }
+        Debug.Log(totalImpulse);
+        if (totalImpulse > 20) totalImpulse *= 1.5f;
+        planeHP -= totalImpulse;
+        UIManager.healthFuelUI.UpdateUI(planeHP, planeMaxHP, planeFuel, planeMaxFuel);
     }
 }

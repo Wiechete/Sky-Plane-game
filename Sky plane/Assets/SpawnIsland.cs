@@ -17,25 +17,32 @@ public class SpawnIsland : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine("Spawn");
+        for (int i = 0; i < 5; i++) Spawn();
+        StartCoroutine("SpawnCoroutine");
     }
 
-    IEnumerator Spawn()
+    IEnumerator SpawnCoroutine()
     {
         yield return new WaitForSeconds(timeBetweenSpawn);
+        Spawn();
+        StartCoroutine("SpawnCoroutine");
+    }
 
-        for(int i = 0; i < 5; i++){
+    void Spawn()
+    {
+        for (int i = 0; i < 5; i++)
+        {
             Vector3 position = new Vector2(Random.Range(minPosition.x, maxPosition.x), Random.Range(minPosition.y, maxPosition.y));
             position += planeController.transform.position;
-            if (position.y < -6) position.y = -6;
+            if (position.y < -6) position.y = -6 + Random.Range(0, 30);
 
             GameObject island = islandsPrefabs[Random.Range(0, islandsPrefabs.Length)];
-            Vector2 size = island.GetComponent<BoxCollider2D>().size;
-            if(Physics2D.OverlapBox(position, size, 0, layerMask) == null){
+            Vector2 size = island.GetComponent<BoxCollider2D>().size * island.transform.localScale;
+            if (Physics2D.OverlapBox(position, size, 0, layerMask) == null)
+            {
                 islands.Add(Instantiate(island, transform.position + position, Quaternion.identity));
                 break;
             }
         }
-        StartCoroutine("Spawn");
     }
 }
