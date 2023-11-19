@@ -47,6 +47,13 @@ public class PlaneControllerV2 : MonoBehaviour
     [SerializeField] private float planeHP;
     [SerializeField] private int planeMaxHP;
 
+
+    [SerializeField] private float minHeight;
+    [SerializeField] private float maxHeight;
+
+    [SerializeField] private float outOfBoundsDamage;
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -147,6 +154,8 @@ public class PlaneControllerV2 : MonoBehaviour
         if(isOnGround) framesSinceOnGround = 0;
 
         CalculateFuelUsage(horizontal, planeRotationZ);
+
+        CalculateOutOfBoundsDamage();
     }
     float GetPlaneRotation()
     {
@@ -193,6 +202,22 @@ public class PlaneControllerV2 : MonoBehaviour
         UIManager.healthFuelUI.UpdateUI(planeHP, planeMaxHP, planeFuel, planeMaxFuel);
     }
 
+    public void TakeDamage(float damageAmount)
+    {
+        planeHP -= damageAmount;
+        if(planeHP < 0){
+            planeHP = 0;
+            UIManager.gameOverlUI.gameObject.SetActive(true);
+        }
+        UIManager.healthFuelUI.UpdateUI(planeHP, planeMaxHP, planeFuel, planeMaxFuel);
+    }
+
+    void CalculateOutOfBoundsDamage()
+    {
+        if(transform.position.y < minHeight || transform.position.y > maxHeight){
+            TakeDamage(Time.deltaTime * outOfBoundsDamage);
+        }
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -205,7 +230,6 @@ public class PlaneControllerV2 : MonoBehaviour
         }
         //Debug.Log(totalImpulse);
         if (totalImpulse > 20) totalImpulse *= 1.5f;
-        planeHP -= totalImpulse;
-        UIManager.healthFuelUI.UpdateUI(planeHP, planeMaxHP, planeFuel, planeMaxFuel);
+        TakeDamage(totalImpulse);
     }
 }
