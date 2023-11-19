@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static AudioManager;
 
 public class AudioManager : MonoBehaviour
 {
@@ -35,12 +34,15 @@ public class AudioManager : MonoBehaviour
     static GameObject mainMusicGameObject;
 
     public enum Sound { 
-        CannonShoot,
-        ButtonPressed,
-        GameReset,
-        PlayerDeath,
-        UIButtonOver,
-        UIButtonClicked,
+        DefaultShoot,
+        RifleShoot,
+        RPGShoot,
+        Damage,
+        BarrelExplosion,
+        PlaneExplosion,
+        BalloonPickup,
+        GameOver,
+        PlaneSuspension
     }
 
     [System.Serializable]
