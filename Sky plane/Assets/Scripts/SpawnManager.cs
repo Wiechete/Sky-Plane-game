@@ -24,7 +24,7 @@ public class SpawnManager : MonoBehaviour
 
     private void Start()
     {
-        for (int i = 0; i < 5; i++) SpawnIsland();
+        //for (int i = 0; i < 5; i++) SpawnIsland();
         StartCoroutine("SpawnIslandsCoroutine");
         StartCoroutine("SpawnBalloonsCoroutine");
     }
@@ -33,6 +33,7 @@ public class SpawnManager : MonoBehaviour
     {
         yield return new WaitForSeconds(islandsCooldown);
         SpawnIsland();
+        DespawnIslands();
         StartCoroutine("SpawnIslandsCoroutine");
     }
 
@@ -40,6 +41,7 @@ public class SpawnManager : MonoBehaviour
     {
         yield return new WaitForSeconds(balloonsCooldown);
         SpawnBalloon();
+        DespawnBalloons();
         StartCoroutine("SpawnBalloonsCoroutine");
     }
 
@@ -81,5 +83,37 @@ public class SpawnManager : MonoBehaviour
         position += planeController.transform.position;
         if (position.y < -6) position.y = -6 + Random.Range(0, 30);
         return position;
+    }
+
+    void DespawnIslands(){
+        for(int i = 0; i < islands.Count; i++){
+            GameObject island = islands[i];
+            if (island == null)
+            {
+                islands.RemoveAt(i);
+                continue;
+            }
+            if (planeController.transform.position.x - island.transform.position.x > 20) {
+                islands.Remove(island);
+                Destroy(island);                            
+            }            
+        }
+    }
+
+    void DespawnBalloons(){
+        for (int i = 0; i < balloons.Count; i++)
+        {
+            GameObject balloon = balloons[i];
+            if (balloon == null)
+            {
+                balloons.RemoveAt(i);
+                continue;
+            }
+            if (planeController.transform.position.x - balloon.transform.position.x > 20)
+            {
+                balloons.Remove(balloon);
+                Destroy(balloon);                
+            }
+        }
     }
 }
