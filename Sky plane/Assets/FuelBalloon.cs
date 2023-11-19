@@ -11,7 +11,7 @@ public class FuelBalloon : MonoBehaviour
         if (collision.TryGetComponent(out PlaneControllerV2 planeController))
         {
             planeController.AddFuel(fuelAmount);
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
             
     }
