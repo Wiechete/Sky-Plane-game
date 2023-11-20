@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 662f0ab8caea0ea4086363f6a4c41d34
+guid: c1f21b3406dad0440981d40c3d8f678f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -108,10 +108,10 @@ TextureImporter:
       name: resource_icons_sheet_0
       rect:
         serializedVersion: 2
-        x: 65
-        y: 323
-        width: 491
-        height: 315
+        x: 300
+        y: 725
+        width: 489
+        height: 313
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,29 +119,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b75b75f63b0086641aeec6eeea732383
-      internalID: 99994167
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: resource_icons_sheet_1
-      rect:
-        serializedVersion: 2
-        x: 571
-        y: 339
-        width: 490
-        height: 315
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f971c3d20a441204f966e5fd57ce4d7e
-      internalID: 1962679453
+      spriteID: a7adc78a9c4e6c44eb4a2e990cd09edb
+      internalID: 659494349
       vertices: []
       indices: 
       edges: []
@@ -150,10 +129,10 @@ TextureImporter:
       name: resource_icons_sheet_2
       rect:
         serializedVersion: 2
-        x: 1135
-        y: 476
-        width: 489
-        height: 315
+        x: 65
+        y: 323
+        width: 490
+        height: 313
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51eb1e34779088848bd7f30ca410e66d
-      internalID: -784304812
+      spriteID: 4cc0155cddf596e45a9b9df42fd43401
+      internalID: -602459774
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resource_icons_sheet_6
+      name: resource_icons_sheet_3
       rect:
         serializedVersion: 2
-        x: 1125
-        y: 44
-        width: 489
-        height: 314
+        x: 571
+        y: 339
+        width: 491
+        height: 313
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,8 +161,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29d650c763b1b0c40990d9b69ce41d11
-      internalID: 79259333
+      spriteID: b7a1c96d8b034a240971747c3ce0b0d9
+      internalID: -193887348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: resource_icons_sheet_4
+      rect:
+        serializedVersion: 2
+        x: 1135
+        y: 477
+        width: 490
+        height: 313
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a76304f52923be44a176264776c88a4
+      internalID: -573781762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: resource_icons_sheet_8
+      rect:
+        serializedVersion: 2
+        x: 1125
+        y: 44
+        width: 491
+        height: 313
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe135ea3677d112409e70ff47b064f77
+      internalID: -206096390
       vertices: []
       indices: 
       edges: []
@@ -199,14 +220,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      resource_icons_sheet_0: 99994167
-      resource_icons_sheet_1: 1962679453
-      resource_icons_sheet_2: -784304812
-      resource_icons_sheet_3: 416616584
-      resource_icons_sheet_4: 1295221061
-      resource_icons_sheet_5: 926187018
-      resource_icons_sheet_6: 79259333
-      resource_icons_sheet_7: 668841786
+      resource_icons_sheet_0: 659494349
+      resource_icons_sheet_1: -1336071077
+      resource_icons_sheet_2: -602459774
+      resource_icons_sheet_3: -193887348
+      resource_icons_sheet_4: -573781762
+      resource_icons_sheet_5: 1920068230
+      resource_icons_sheet_6: -2121254127
+      resource_icons_sheet_7: 235493884
+      resource_icons_sheet_8: -206096390
+      resource_icons_sheet_9: 1928690148
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 1
