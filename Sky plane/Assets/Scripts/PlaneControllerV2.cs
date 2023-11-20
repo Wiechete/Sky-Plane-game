@@ -232,4 +232,13 @@ public class PlaneControllerV2 : MonoBehaviour
         if (totalImpulse > 20) totalImpulse *= 1.5f;
         TakeDamage(totalImpulse);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.TryGetComponent(out EnemyController enemyController)){
+            TakeDamage(30);
+            rb.AddForce((transform.position - collision.transform.position) * 100, ForceMode2D.Force);
+            enemyController.Explode();
+        }
+    }    
 }
