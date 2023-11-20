@@ -1,17 +1,22 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
     public GameObject[] islandsPrefabs;
     public GameObject[] balloonsPrefabs;
+    public GameObject[] enemyPlanePrefabs;
 
     public Transform islandsParent;
     public Transform balloonsParent;
+    public Transform enemiesParent;
 
     List<GameObject> islands = new List<GameObject>();
     List<GameObject> balloons = new List<GameObject>();
+    List<GameObject> enemyPlanes = new List<GameObject>();
     public PlaneControllerV2 planeController;
 
     public Vector2 minPosition;
@@ -21,12 +26,13 @@ public class SpawnManager : MonoBehaviour
 
     public float islandsCooldown;
     public float balloonsCooldown;
+    public float enemyPlanesCooldown;
 
     private void Start()
     {
-        //for (int i = 0; i < 5; i++) SpawnIsland();
         StartCoroutine("SpawnIslandsCoroutine");
         StartCoroutine("SpawnBalloonsCoroutine");
+        StartCoroutine("SpawnEnemyPlanesCoroutine");
     }
 
     IEnumerator SpawnIslandsCoroutine()
@@ -43,6 +49,13 @@ public class SpawnManager : MonoBehaviour
         SpawnBalloon();
         DespawnBalloons();
         StartCoroutine("SpawnBalloonsCoroutine");
+    }
+    IEnumerator SpawnEnemyPlanesCoroutine()
+    {
+        yield return new WaitForSeconds(enemyPlanesCooldown);
+        SpawnEnemyPlane();
+        DespawnEnemyPlane();
+        StartCoroutine("SpawnEnemyPlanesCoroutine");
     }
 
     void SpawnIsland()
@@ -75,6 +88,14 @@ public class SpawnManager : MonoBehaviour
                 break;
             }
         }
+    }
+    void SpawnEnemyPlane(){
+        GameObject prefab = enemyPlanePrefabs[Random.Range(0, enemyPlanePrefabs.Length)];
+        Vector3 position = new Vector3(planeController.transform.position.x - 10, Random.Range(0, 30));
+        GameObject enemyPlane = Instantiate(prefab, enemiesParent);
+        enemyPlane.transform.position = position;
+        enemyPlane.GetComponent<EnemyController>().playerPlane = planeController;
+        enemyPlanes.Add(enemyPlane);
     }
 
     Vector3 GetSpawnPosition()
@@ -113,6 +134,24 @@ public class SpawnManager : MonoBehaviour
             {
                 balloons.Remove(balloon);
                 Destroy(balloon);                
+            }
+        }
+    }
+
+    void DespawnEnemyPlane()
+    {
+        for (int i = 0; i < enemyPlanes.Count; i++)
+        {
+            GameObject plane = enemyPlanes[i];
+            if (plane == null)
+            {
+                enemyPlanes.RemoveAt(i);
+                continue;
+            }
+            if (plane.transform.position.x - planeController.transform.position.x > 30)
+            {
+                balloons.Remove(plane);
+                Destroy(plane);
             }
         }
     }
