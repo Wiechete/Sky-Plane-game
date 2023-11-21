@@ -3075,8 +3075,10 @@ MonoBehaviour:
   - {fileID: 2698109774321987046, guid: a82c2c9f05aa9644c95947c73ecb2ca1, type: 3}
   - {fileID: 2518349926054767250, guid: 4bbb075375fb1b24ab5ec4b3ded1514b, type: 3}
   - {fileID: 4686931982844885866, guid: b8ce946840aa7114e87cecbf85cb7a3a, type: 3}
+  enemyPlanePrefabs: []
   islandsParent: {fileID: 334317786}
   balloonsParent: {fileID: 439573778}
+  enemiesParent: {fileID: 0}
   planeController: {fileID: 1224335331}
   minPosition: {x: 40, y: -30}
   maxPosition: {x: 70, y: 30}
@@ -3085,6 +3087,7 @@ MonoBehaviour:
     m_Bits: 128
   islandsCooldown: 0.75
   balloonsCooldown: 2
+  enemyPlanesCooldown: 0
 --- !u!4 &966615069
 Transform:
   m_ObjectHideFlags: 0
@@ -3950,6 +3953,7 @@ MonoBehaviour:
   - {fileID: 5668382787346413083, guid: 177d9830d2e0dad40a274892a90a3171, type: 3}
   - {fileID: 6176973871112675137, guid: ca0d28e4a3e71ec48a8dbd07c850cc26, type: 3}
   - {fileID: 443048053979797802, guid: 71a2ee505da190d4ebc264905302abc7, type: 3}
+  weaponsCooldowns: []
   currentWeapon: 0
   bulletsParent: {fileID: 1227995566}
 --- !u!1 &1227995565
