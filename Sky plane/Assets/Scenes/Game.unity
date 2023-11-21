@@ -1737,6 +1737,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &531236706
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 531236707}
+  m_Layer: 0
+  m_Name: CloudsParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &531236707
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531236706}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.8726764, y: 1.835365, z: -0.3916741}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &539758041
 GameObject:
   m_ObjectHideFlags: 0
@@ -4038,7 +4069,18 @@ MonoBehaviour:
   enemyPlanePrefabs:
   - {fileID: 286601546512766245, guid: 89cde080db6e25b4798f28b99805e23c, type: 3}
   - {fileID: 2875291575742949922, guid: 43bef8de0f095f9468b3693728496f7f, type: 3}
+  cloudsPrefabs:
+  - {fileID: 5483751136200118262, guid: 89dffe2444c2b734ea0cdb2774c117eb, type: 3}
+  - {fileID: 480033133483484649, guid: 85cd19d41a602d64ab19b12c9599676e, type: 3}
+  - {fileID: 1844184268161677686, guid: b02656b162283b64ca1909f74c4c0a77, type: 3}
+  - {fileID: 901624638436410659, guid: f4c2204fad0e2134c9526faf5c5234dd, type: 3}
+  - {fileID: 4574165562008089996, guid: 842afc5a3081ede4a8aab2eb11c3114f, type: 3}
+  - {fileID: 3471129377398411610, guid: c38cf66a6ec78ac4292fc0085cef99cc, type: 3}
+  - {fileID: 7865844259348142559, guid: 9c4203732fa6ad34e84ec4fb00500ee2, type: 3}
+  - {fileID: 3513373020332781116, guid: 43873f86f12e5c248a1faa79d45c1717, type: 3}
+  - {fileID: 8232388801764356317, guid: 8aebc15e6b0d6674aa3d46ebf79bdac7, type: 3}
   islandsParent: {fileID: 2114027369}
+  cloudsParent: {fileID: 531236707}
   balloonsParent: {fileID: 1079210337}
   enemiesParent: {fileID: 0}
   planeController: {fileID: 1581142594}
@@ -4046,10 +4088,11 @@ MonoBehaviour:
   maxPosition: {x: 70, y: 30}
   layerMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 1024
   islandsCooldown: 0.75
   balloonsCooldown: 2
   enemyPlanesCooldown: 4
+  cloudsCooldown: 0.2
 --- !u!4 &1304848567
 Transform:
   m_ObjectHideFlags: 0
