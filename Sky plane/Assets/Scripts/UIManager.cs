@@ -10,11 +10,15 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameOverUI _gameOverlUI;
     public static GameOverUI gameOverlUI;
 
+    [SerializeField] private DistanceUI _distanceUI;
+    public static DistanceUI distanceUI;
+
 
     void Awake()
     {
         healthFuelUI = _healthFuelUI;
         gameOverlUI = _gameOverlUI;
+        distanceUI = _distanceUI;
     }
 
 }

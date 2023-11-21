@@ -4066,19 +4066,20 @@ MonoBehaviour:
   - {fileID: 4686931982844885866, guid: b8ce946840aa7114e87cecbf85cb7a3a, type: 3}
   - {fileID: 7442372475328017880, guid: 4bc5d5a8979eec44ebd95c1b1e25765f, type: 3}
   - {fileID: 7442372475328017880, guid: 4bc5d5a8979eec44ebd95c1b1e25765f, type: 3}
+  - {fileID: 2698109774321987046, guid: a82c2c9f05aa9644c95947c73ecb2ca1, type: 3}
   enemyPlanePrefabs:
   - {fileID: 286601546512766245, guid: 89cde080db6e25b4798f28b99805e23c, type: 3}
   - {fileID: 2875291575742949922, guid: 43bef8de0f095f9468b3693728496f7f, type: 3}
   cloudsPrefabs:
-  - {fileID: 5483751136200118262, guid: 89dffe2444c2b734ea0cdb2774c117eb, type: 3}
-  - {fileID: 480033133483484649, guid: 85cd19d41a602d64ab19b12c9599676e, type: 3}
-  - {fileID: 1844184268161677686, guid: b02656b162283b64ca1909f74c4c0a77, type: 3}
-  - {fileID: 901624638436410659, guid: f4c2204fad0e2134c9526faf5c5234dd, type: 3}
-  - {fileID: 4574165562008089996, guid: 842afc5a3081ede4a8aab2eb11c3114f, type: 3}
-  - {fileID: 3471129377398411610, guid: c38cf66a6ec78ac4292fc0085cef99cc, type: 3}
-  - {fileID: 7865844259348142559, guid: 9c4203732fa6ad34e84ec4fb00500ee2, type: 3}
-  - {fileID: 3513373020332781116, guid: 43873f86f12e5c248a1faa79d45c1717, type: 3}
-  - {fileID: 8232388801764356317, guid: 8aebc15e6b0d6674aa3d46ebf79bdac7, type: 3}
+  - {fileID: 6550437682327814401, guid: 89dffe2444c2b734ea0cdb2774c117eb, type: 3}
+  - {fileID: 6481025716046847138, guid: 85cd19d41a602d64ab19b12c9599676e, type: 3}
+  - {fileID: 3122731036552253208, guid: b02656b162283b64ca1909f74c4c0a77, type: 3}
+  - {fileID: 9033520634725056542, guid: f4c2204fad0e2134c9526faf5c5234dd, type: 3}
+  - {fileID: 8145066778600111232, guid: 842afc5a3081ede4a8aab2eb11c3114f, type: 3}
+  - {fileID: 5230437759943165708, guid: c38cf66a6ec78ac4292fc0085cef99cc, type: 3}
+  - {fileID: 5705995085326357552, guid: 9c4203732fa6ad34e84ec4fb00500ee2, type: 3}
+  - {fileID: 1520930936277584057, guid: 43873f86f12e5c248a1faa79d45c1717, type: 3}
+  - {fileID: 2321876524059056820, guid: 8aebc15e6b0d6674aa3d46ebf79bdac7, type: 3}
   islandsParent: {fileID: 2114027369}
   cloudsParent: {fileID: 531236707}
   balloonsParent: {fileID: 1079210337}
@@ -4092,7 +4093,7 @@ MonoBehaviour:
   islandsCooldown: 0.75
   balloonsCooldown: 2
   enemyPlanesCooldown: 4
-  cloudsCooldown: 0.2
+  cloudsCooldown: 0.3
 --- !u!4 &1304848567
 Transform:
   m_ObjectHideFlags: 0
@@ -4299,6 +4300,14 @@ PrefabInstance:
       propertyPath: playerPlane
       value: 
       objectReference: {fileID: 1581142594}
+    - target: {fileID: 1018278433717081001, guid: 89cde080db6e25b4798f28b99805e23c, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1018278433717081001, guid: 89cde080db6e25b4798f28b99805e23c, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -2046222411
+      objectReference: {fileID: 0}
     - target: {fileID: 2603119757768563749, guid: 89cde080db6e25b4798f28b99805e23c, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -4342,6 +4351,18 @@ PrefabInstance:
     - target: {fileID: 2603119757768563749, guid: 89cde080db6e25b4798f28b99805e23c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 5.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 2751327352428515535, guid: 89cde080db6e25b4798f28b99805e23c, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2751327352428515535, guid: 89cde080db6e25b4798f28b99805e23c, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -2046222411
+      objectReference: {fileID: 0}
+    - target: {fileID: 7459160028954145518, guid: 89cde080db6e25b4798f28b99805e23c, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89cde080db6e25b4798f28b99805e23c, type: 3}
@@ -4979,13 +5000,15 @@ MonoBehaviour:
     m_Bits: 183
   currentSpeed: 0
   planeFuelUsageMult: 2
-  planeFuel: 50
+  planeFuel: 60
   planeMaxFuel: 100
-  planeHP: 100
+  planeHP: 60
   planeMaxHP: 100
   minHeight: -10
   maxHeight: 40
   outOfBoundsDamage: 8
+  explosion: {fileID: 5157727756496537319, guid: d1c689f4e059a60478428243ef73a8bb, type: 3}
+  planeParts: {fileID: 8197275673954228322, guid: 7b7eac0fff33282489db4fdb9aaa4567, type: 3}
 --- !u!4 &1581142595
 Transform:
   m_ObjectHideFlags: 0
@@ -4994,7 +5017,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1581142593}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.5, y: 1, z: 0}
+  m_LocalPosition: {x: -12.61, y: 1.11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

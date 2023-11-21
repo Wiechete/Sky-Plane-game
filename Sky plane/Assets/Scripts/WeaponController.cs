@@ -15,11 +15,20 @@ public class WeaponController : MonoBehaviour
     [SerializeField] private Transform bulletsParent;
 
     private float lastTimeShoot = 0;
+
+    private void Start()
+    {
+        UIManager.distanceUI.UpdateUI(0);
+    }
+
+
     private void Update()
     {
         if(Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space)) {
             Shoot();
         }
+        if (transform.position.x >= -12.5f)
+            UIManager.distanceUI.UpdateUI(Mathf.RoundToInt(transform.position.x + 12.5f));
     }
 
     private void Shoot(){

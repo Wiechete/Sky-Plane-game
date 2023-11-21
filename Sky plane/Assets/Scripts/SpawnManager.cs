@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class SpawnManager : MonoBehaviour
 {
@@ -39,6 +40,13 @@ public class SpawnManager : MonoBehaviour
         StartCoroutine("SpawnEnemyPlanesCoroutine");
         StartCoroutine("SpawnCloudsCoroutine");
     }
+
+    private void Update()
+    {
+        if (planeController == null) Destroy(gameObject);
+    }
+
+
 
     IEnumerator SpawnIslandsCoroutine()
     {

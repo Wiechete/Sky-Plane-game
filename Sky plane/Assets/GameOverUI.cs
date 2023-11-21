@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameOverUI : MonoBehaviour
 {
     public Button playAgainButton;
-    public Button mainMenuButton;
+    public Button mainMenuButton;   
 
     public GameObject mainMenuUI;
 
@@ -31,11 +31,19 @@ public class GameOverUI : MonoBehaviour
 
     private void OnEnable()
     {
+        StartCoroutine(OpenUI());
+    }
+
+    private IEnumerator OpenUI()
+    {
+        yield return new WaitForSeconds(2f);
         Time.timeScale = 0.1f;
+        transform.GetChild(0).gameObject.SetActive(true);
     }
 
     private void OnDisable()
     {
         Time.timeScale = 1;
+        transform.GetChild(0).gameObject.SetActive(false);
     }
 }

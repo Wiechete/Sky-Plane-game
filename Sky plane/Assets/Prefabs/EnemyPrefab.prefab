@@ -76,8 +76,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2046222411
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -590224333, guid: f9340697d8aa38644a2194585c6f6c00, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -108,6 +108,7 @@ MonoBehaviour:
   shootingCooldown: 0.25
   playerPlane: {fileID: 0}
   shootingPoint: {fileID: 6867934360407191926}
+  explosion: {fileID: 5157727756496537319, guid: d1c689f4e059a60478428243ef73a8bb, type: 3}
 --- !u!70 &4170219155996233773
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

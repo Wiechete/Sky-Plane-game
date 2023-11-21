@@ -53,7 +53,8 @@ public class PlaneControllerV2 : MonoBehaviour
 
     [SerializeField] private float outOfBoundsDamage;
 
-
+    [SerializeField] private GameObject explosion;
+    [SerializeField] private GameObject planeParts;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -91,7 +92,7 @@ public class PlaneControllerV2 : MonoBehaviour
 
         Vector3 accelerationForce = transform.right * horizontal * planePower.Evaluate(planeSpeedVertical / planeMaxSpeed) * planePowerMult;
         if (horizontal < 0) accelerationForce *= 0.3f;
-
+        if (planeFuel <= 0) accelerationForce *= 0;
 
         float planeUpForce = -planeSpeedHorizontal * planeUpForceMult * planeUpForceBySpeed.Evaluate(rb.velocity.magnitude / planeMaxSpeed * 1.5f);        
 
@@ -207,7 +208,12 @@ public class PlaneControllerV2 : MonoBehaviour
         planeHP -= damageAmount;
         if(planeHP < 0){
             planeHP = 0;
+            GameObject expl = Instantiate(explosion);
+            GameObject parts = Instantiate(planeParts);
+            expl.transform.position = transform.position;
+            parts.transform.position = transform.position;
             UIManager.gameOverlUI.gameObject.SetActive(true);
+            Destroy(gameObject);
         }
         UIManager.healthFuelUI.UpdateUI(planeHP, planeMaxHP, planeFuel, planeMaxFuel);
     }
@@ -215,6 +221,7 @@ public class PlaneControllerV2 : MonoBehaviour
     void CalculateOutOfBoundsDamage()
     {
         if(transform.position.y < minHeight || transform.position.y > maxHeight){
+            if (planeFuel < 0) TakeDamage(1000);
             TakeDamage(Time.deltaTime * outOfBoundsDamage);
         }
     }

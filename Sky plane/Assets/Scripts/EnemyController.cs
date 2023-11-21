@@ -13,6 +13,8 @@ public class EnemyController : MonoBehaviour
     public PlaneControllerV2 playerPlane;
 
     public Transform shootingPoint;
+
+    [SerializeField] private GameObject explosion;
     private void Awake()
     {
         if (bulletPrefab != null)
@@ -43,5 +45,8 @@ public class EnemyController : MonoBehaviour
     public void Explode()
     {
         Destroy(gameObject);
+        GameObject expl = Instantiate(explosion);
+        expl.transform.position = transform.position;
+        Destroy(expl, 1);
     }
 }
