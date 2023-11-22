@@ -82,8 +82,8 @@ public class PlaneControllerV2 : MonoBehaviour
     {
         float horizontal = Input.GetAxis("Horizontal");
         if(horizontal < 0) horizontal = 0;
-        float volume1 = volumeMult1 * AudioManager.sfxVolume * Mathf.Max(1 - horizontal, 1 - (currentSpeed / planeMaxSpeed));
-        float volume2 = (currentSpeed / planeMaxSpeed) * volumeMult2 * AudioManager.sfxVolume * horizontal;
+        float volume1 = volumeMult1 * AudioManager.sfxVolume * AudioManager.masterVolume * Mathf.Max(1 - horizontal, 1 - (currentSpeed / planeMaxSpeed));
+        float volume2 = (currentSpeed / planeMaxSpeed) * volumeMult2 * AudioManager.sfxVolume * horizontal * AudioManager.masterVolume;
 
         float maxVolumeChange = 0.005f;
 

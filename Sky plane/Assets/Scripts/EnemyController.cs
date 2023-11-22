@@ -32,7 +32,7 @@ public class EnemyController : MonoBehaviour
     {
         if(playerPlane == null) Destroy(gameObject);
         if (playerPlane != null && Vector3.Distance(transform.position, playerPlane.transform.position) < 12)
-            audioSource.volume = volumeMult * Mathf.Pow(12 - Vector3.Distance(transform.position, playerPlane.transform.position), 2);
+            audioSource.volume = volumeMult * Mathf.Pow(12 - Vector3.Distance(transform.position, playerPlane.transform.position), 2) * AudioManager.masterVolume * AudioManager.sfxVolume;
         else
             audioSource.volume = 0;
     }
