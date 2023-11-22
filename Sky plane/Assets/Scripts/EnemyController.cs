@@ -44,9 +44,10 @@ public class EnemyController : MonoBehaviour
 
     public void Explode()
     {
-        Destroy(gameObject);
+        PlaneControllerV2.planesDestroyed++;
         GameObject expl = Instantiate(explosion);
         expl.transform.position = transform.position;
         Destroy(expl, 1);
+        Destroy(gameObject);
     }
 }

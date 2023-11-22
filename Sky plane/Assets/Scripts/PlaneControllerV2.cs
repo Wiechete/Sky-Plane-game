@@ -55,6 +55,8 @@ public class PlaneControllerV2 : MonoBehaviour
 
     [SerializeField] private GameObject explosion;
     [SerializeField] private GameObject planeParts;
+
+    public static int planesDestroyed = 0;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -62,6 +64,7 @@ public class PlaneControllerV2 : MonoBehaviour
 
         smallWheelLenght = smallWheel.localPosition - smallWheelOrigin.localPosition;
         bigWheelLenght = bigWheel.localPosition - bigWheelOrigin.localPosition;
+        planesDestroyed = 0;
     }
 
     void FixedUpdate()
@@ -212,7 +215,7 @@ public class PlaneControllerV2 : MonoBehaviour
             GameObject parts = Instantiate(planeParts);
             expl.transform.position = transform.position;
             parts.transform.position = transform.position;
-            UIManager.gameOverlUI.gameObject.SetActive(true);
+            UIManager.gameOverlUI.StartCoroutine(UIManager.gameOverlUI.OpenUI(Mathf.RoundToInt(transform.position.x  + 12.5f), planesDestroyed));
             Destroy(gameObject);
         }
         UIManager.healthFuelUI.UpdateUI(planeHP, planeMaxHP, planeFuel, planeMaxFuel);
