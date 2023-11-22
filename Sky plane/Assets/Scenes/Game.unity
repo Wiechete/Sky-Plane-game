@@ -4061,6 +4061,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   islandsPrefabs:
   - {fileID: 4316846479079551523, guid: e5947f1dd73464442a778330d393d6dd, type: 3}
+  - {fileID: 7103231846288820080, guid: d2c0b62672794ce408c88a6cb2a5f09a, type: 3}
+  - {fileID: 3103441418824183631, guid: 1954a3cc3b8d2174ea97fe89ed80b7bf, type: 3}
+  - {fileID: 6376502240167176100, guid: 12d6e611cd2da4144838641f61b22aa2, type: 3}
+  - {fileID: 8512339149067869919, guid: 0b777046df5b55a47a69821593367e02, type: 3}
+  - {fileID: 7427247245977839017, guid: 8d475cf7aa4883a4a93f1b723f4331b6, type: 3}
   balloonsPrefabs:
   - {fileID: 2518349926054767250, guid: 4bbb075375fb1b24ab5ec4b3ded1514b, type: 3}
   - {fileID: 4686931982844885866, guid: b8ce946840aa7114e87cecbf85cb7a3a, type: 3}
@@ -4096,7 +4101,7 @@ MonoBehaviour:
   cloudsLayerMask:
     serializedVersion: 2
     m_Bits: 1024
-  islandsCooldown: 0.75
+  islandsCooldown: 1
   balloonsCooldown: 2
   enemyPlanesCooldown: 4
   cloudsCooldown: 0.3

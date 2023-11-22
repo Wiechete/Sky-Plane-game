@@ -37,12 +37,12 @@ public class AudioManager : MonoBehaviour
         DefaultShoot,
         RifleShoot,
         RPGShoot,
-        Damage,
-        BarrelExplosion,
+        ShootHit,
+        IslandHit,
         PlaneExplosion,
         BalloonPickup,
         GameOver,
-        PlaneSuspension
+        PlaneTire
     }
 
     [System.Serializable]
