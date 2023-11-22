@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    public GameObject planeWarningPrefab;
+    private GameObject planeWarning;
+
     public float planeSpeed;
     public int HP;
     public GameObject bulletPrefab;
@@ -15,16 +18,35 @@ public class EnemyController : MonoBehaviour
     public Transform shootingPoint;
 
     [SerializeField] private GameObject explosion;
-    private void Awake()
+    bool isAlreadySpawned = false;
+    Vector3 movementBeforeSpawn = Vector3.zero;
+    private void Start()
     {
+        StartCoroutine("SpawnPlane");
+    }
+
+    IEnumerator SpawnPlane()
+    {
+        planeWarning = Instantiate(planeWarningPrefab);
+        planeWarning.transform.position = Camera.main.transform.position - new Vector3(18.25f, 0, 0); 
+        planeWarning.transform.position = new Vector3(planeWarning.transform.position.x, transform.position.y, 0);
+        
+        yield return new WaitForSeconds(1);
+        Destroy(planeWarning);
+        isAlreadySpawned = true;
+        transform.position += movementBeforeSpawn;
         if (bulletPrefab != null)
             StartCoroutine("Shoot");
     }
 
     void FixedUpdate()
     {
-        //rb.MovePosition(transform.position + Vector3.right * Time.fixedDeltaTime * (planeSpeed + playerPlane.currentSpeed / 2.5f));
-        transform.position += Vector3.right * Time.fixedDeltaTime * (planeSpeed + playerPlane.currentSpeed / 2.5f);
+        if(isAlreadySpawned)
+            transform.position += Vector3.right * Time.fixedDeltaTime * (planeSpeed + playerPlane.currentSpeed / 2.5f);
+        else{
+            planeWarning.transform.position += Vector3.right * playerPlane.currentSpeed * Time.deltaTime;
+            movementBeforeSpawn += Vector3.right * playerPlane.currentSpeed * Time.deltaTime;
+        }
     }
 
     IEnumerator Shoot()

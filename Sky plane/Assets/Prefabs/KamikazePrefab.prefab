@@ -132,6 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 038b75f49e2a8a343834bad2b89cf689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  planeWarningPrefab: {fileID: 3945499992111844887, guid: 278f8dd95ac0bd447b812a94fe5dc9f8, type: 3}
   planeSpeed: 30
   HP: 2
   bulletPrefab: {fileID: 0}
