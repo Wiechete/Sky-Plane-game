@@ -57,6 +57,7 @@ public class PlaneControllerV2 : MonoBehaviour
     [SerializeField] private GameObject planeParts;
 
     public static int planesDestroyed = 0;
+    bool gameOver = false;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -209,7 +210,8 @@ public class PlaneControllerV2 : MonoBehaviour
     public void TakeDamage(float damageAmount)
     {
         planeHP -= damageAmount;
-        if(planeHP < 0){
+        if(planeHP < 0 && !gameOver){
+            gameOver = true;
             planeHP = 0;
             GameObject expl = Instantiate(explosion);
             GameObject parts = Instantiate(planeParts);
