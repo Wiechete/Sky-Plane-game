@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6593368163486304740}
   - component: {fileID: 8905575592791615190}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: clouds_sheet_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6813436182841154359}
   - component: {fileID: 4879347410195993036}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cloud7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,13 +124,13 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5705995085326357552}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.22697598, y: -0.1868478}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -141,5 +141,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.8050753, y: 1.3736954}
   m_EdgeRadius: 0

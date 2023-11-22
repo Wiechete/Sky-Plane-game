@@ -4087,7 +4087,13 @@ MonoBehaviour:
   planeController: {fileID: 1581142594}
   minPosition: {x: 40, y: -30}
   maxPosition: {x: 70, y: 30}
-  layerMask:
+  islandLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  balloonLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  cloudsLayerMask:
     serializedVersion: 2
     m_Bits: 1024
   islandsCooldown: 0.75

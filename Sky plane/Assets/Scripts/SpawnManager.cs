@@ -26,7 +26,9 @@ public class SpawnManager : MonoBehaviour
     public Vector2 minPosition;
     public Vector2 maxPosition;
 
-    public LayerMask layerMask;
+    public LayerMask islandLayerMask;
+    public LayerMask balloonLayerMask;
+    public LayerMask cloudsLayerMask;
 
     public float islandsCooldown;
     public float balloonsCooldown;
@@ -86,7 +88,7 @@ public class SpawnManager : MonoBehaviour
 
             GameObject island = islandsPrefabs[Random.Range(0, islandsPrefabs.Length)];
             Vector2 size = island.GetComponent<BoxCollider2D>().size * island.transform.localScale;
-            if (Physics2D.OverlapBox(position, size, 0, layerMask) == null)
+            if (Physics2D.OverlapBox(position, size, 0, islandLayerMask + balloonLayerMask) == null)
             {
                 islands.Add(Instantiate(island, transform.position + position, Quaternion.identity, islandsParent));
                 break;
@@ -102,7 +104,7 @@ public class SpawnManager : MonoBehaviour
 
             GameObject balloon = balloonsPrefabs[Random.Range(0, balloonsPrefabs.Length)];
             Vector2 size = balloon.GetComponent<BoxCollider2D>().size * balloon.transform.localScale;
-            if (Physics2D.OverlapBox(position, size, 0, layerMask) == null)
+            if (Physics2D.OverlapBox(position, size, 0, islandLayerMask + balloonLayerMask) == null)
             {
                 balloons.Add(Instantiate(balloon, transform.position + position, Quaternion.identity, balloonsParent));
                 break;
@@ -125,7 +127,7 @@ public class SpawnManager : MonoBehaviour
 
             GameObject cloud = cloudsPrefabs[Random.Range(0, cloudsPrefabs.Length)];
             Vector2 size = cloud.GetComponent<BoxCollider2D>().size * cloud.transform.localScale;
-            if (Physics2D.OverlapBox(position, size, 0, layerMask) == null)
+            if (Physics2D.OverlapBox(position, size, 0, cloudsLayerMask) == null)
             {
                 clouds.Add(Instantiate(cloud, transform.position + position, Quaternion.identity, cloudsParent));
                 break;
