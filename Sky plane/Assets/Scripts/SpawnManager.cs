@@ -8,6 +8,7 @@ using UnityEngine.PlayerLoop;
 public class SpawnManager : MonoBehaviour
 {
     public GameObject[] islandsPrefabs;
+    public GameObject[] rareIslandsPrefabs;
     public GameObject[] balloonsPrefabs;
     public GameObject[] enemyPlanePrefabs;
     public GameObject[] cloudsPrefabs;

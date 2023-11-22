@@ -25,12 +25,14 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(isEnemyBullet && collision.gameObject.TryGetComponent(out PlaneControllerV2 planeController)){
+            AudioManager.PlaySound(AudioManager.Sound.ShootHit);
             planeController.TakeDamage(damage);
             Destroy(gameObject);
         }
         else
         {
             if(!isEnemyBullet && collision.gameObject.TryGetComponent(out EnemyController enemyController)){
+                AudioManager.PlaySound(AudioManager.Sound.ShootHit);
                 enemyController.TakeDamage(damage);
                 Destroy(gameObject);
             }

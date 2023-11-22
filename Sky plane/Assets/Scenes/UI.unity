@@ -513,7 +513,6 @@ GameObject:
   m_Component:
   - component: {fileID: 253979276}
   - component: {fileID: 253979278}
-  - component: {fileID: 253979277}
   m_Layer: 5
   m_Name: Camera
   m_TagString: Untagged
@@ -541,14 +540,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!81 &253979277
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 253979275}
-  m_Enabled: 1
 --- !u!20 &253979278
 Camera:
   m_ObjectHideFlags: 0
@@ -1566,6 +1557,7 @@ GameObject:
   - component: {fileID: 855002318}
   - component: {fileID: 855002317}
   - component: {fileID: 855002319}
+  - component: {fileID: 855002320}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -1585,7 +1577,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df79b71d38e100a49801a8fe0591a5dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundAudioClips: []
+  soundAudioClips:
+  - sound: 0
+    soundInfo:
+      audioClip: {fileID: 8300000, guid: 73b9fa2330df89046abd982c62707f9a, type: 3}
+      volume: 0.75
+  - sound: 1
+    soundInfo:
+      audioClip: {fileID: 8300000, guid: 8f84ff175699ef54ebeb1e304c459e75, type: 3}
+      volume: 0.35
+  - sound: 2
+    soundInfo:
+      audioClip: {fileID: 8300000, guid: a1fd8b8763b05b146b0de2bdee35a5cf, type: 3}
+      volume: 0.95
+  - sound: 3
+    soundInfo:
+      audioClip: {fileID: 8300000, guid: ed4688e28ccb05344b066b00dfd80db7, type: 3}
+      volume: 0.75
+  - sound: 4
+    soundInfo:
+      audioClip: {fileID: 8300000, guid: f1d779f22d00229448efcea3f4920752, type: 3}
+      volume: 0.4
+  - sound: 5
+    soundInfo:
+      audioClip: {fileID: 8300000, guid: 2073a80f213e9d14781754e98672bad9, type: 3}
+      volume: 0.75
+  - sound: 6
+    soundInfo:
+      audioClip: {fileID: 8300000, guid: 8cf5c9ce726461144ae5b5e3ea728683, type: 3}
+      volume: 0.75
+  - sound: 7
+    soundInfo:
+      audioClip: {fileID: 8300000, guid: 0c9458802b1e1e6478c9e94da848fbdf, type: 3}
+      volume: 0.75
+  - sound: 8
+    soundInfo:
+      audioClip: {fileID: 8300000, guid: e5945692ac54ac547a2915fe5489e395, type: 3}
+      volume: 0.75
+  - sound: 9
+    soundInfo:
+      audioClip: {fileID: 8300000, guid: 458b29ccde6241549853084ce65912ac, type: 3}
+      volume: 0.3
+  - sound: 10
+    soundInfo:
+      audioClip: {fileID: 8300000, guid: 7b9c978e8e650f84b890d54fc1a27548, type: 3}
+      volume: 0.35
+  - sound: 11
+    soundInfo:
+      audioClip: {fileID: 8300000, guid: e9bd0cce201586d4fabece68d0f3beeb, type: 3}
+      volume: 0.75
   mainMusicVolume: 1
 --- !u!4 &855002318
 Transform:
@@ -1609,14 +1649,14 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 855002316}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 7b9c978e8e650f84b890d54fc1a27548, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1698,6 +1738,14 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!81 &855002320
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855002316}
+  m_Enabled: 1
 --- !u!1 &886835575
 GameObject:
   m_ObjectHideFlags: 0
@@ -3269,7 +3317,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1393188914}
   - component: {fileID: 1393188916}
-  - component: {fileID: 1393188915}
   m_Layer: 5
   m_Name: Camera
   m_TagString: Untagged
@@ -3297,14 +3344,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!81 &1393188915
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1393188913}
-  m_Enabled: 1
 --- !u!20 &1393188916
 Camera:
   m_ObjectHideFlags: 0

@@ -66,10 +66,20 @@ public class EnemyController : MonoBehaviour
 
     public void Explode()
     {
+        PlayExplosionSound();
         PlaneControllerV2.planesDestroyed++;
         GameObject expl = Instantiate(explosion);
         expl.transform.position = transform.position;
         Destroy(expl, 1);
         Destroy(gameObject);
+    }
+
+    private void PlayExplosionSound()
+    {
+        int index = Random.Range(0, 4);
+        if (index == 0) AudioManager.PlaySound(AudioManager.Sound.PlaneExplosion1);
+        if (index == 1) AudioManager.PlaySound(AudioManager.Sound.PlaneExplosion2);
+        if (index == 2) AudioManager.PlaySound(AudioManager.Sound.PlaneExplosion3);
+        if (index == 3) AudioManager.PlaySound(AudioManager.Sound.PlaneExplosion4);
     }
 }

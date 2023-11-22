@@ -47,7 +47,7 @@ public class SettingsUI : MonoBehaviour
         PlayerPrefs.SetFloat("MasterVolume", AudioManager.masterVolume);
         PlayerPrefs.SetFloat("MusicVolume", AudioManager.musicVolume);
         PlayerPrefs.SetFloat("sfxVolume", AudioManager.sfxVolume);
-
+        AudioManager.PlaySound(AudioManager.Sound.ButtonUI);
 
         Time.timeScale = 1f;
         gameObject.SetActive(false);

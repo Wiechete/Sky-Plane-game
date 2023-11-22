@@ -75,7 +75,7 @@ public class MainMenu : MonoBehaviour
         //    setPlayerNameUI.SetActive(true);
         //    return;
         //}
-
+        AudioManager.PlaySound(AudioManager.Sound.ButtonUI);
         SceneManager.LoadScene("Game", LoadSceneMode.Additive);
         gameObject.SetActive(false);
     }
@@ -88,6 +88,7 @@ public class MainMenu : MonoBehaviour
 
     void SettingsButtonClicked()
     {
+        AudioManager.PlaySound(AudioManager.Sound.ButtonUI);
         settingsUI.SetActive(true);
     }
 }

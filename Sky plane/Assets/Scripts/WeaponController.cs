@@ -38,6 +38,10 @@ public class WeaponController : MonoBehaviour
         bullet.transform.position = shootPositions[currentWeapon].position;
         bullet.transform.right = transform.right;
         bullet.GetComponent<Bullet>().startingVelocity = Vector3.Dot(GetComponent<Rigidbody2D>().velocity, transform.right);
+
+        if(currentWeapon == 0) AudioManager.PlaySound(AudioManager.Sound.DefaultShoot);
+        if(currentWeapon == 1) AudioManager.PlaySound(AudioManager.Sound.RifleShoot);
+        if(currentWeapon == 2) AudioManager.PlaySound(AudioManager.Sound.RPGShoot);
     }
 
     public void ChangeWeapon(int index){

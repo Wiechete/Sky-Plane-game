@@ -25,12 +25,14 @@ public class GameOverUI : MonoBehaviour
         mainMenuButton.onClick.AddListener(MainMenu);
     }
 
-    private void PlayAgain(){        
+    private void PlayAgain(){
+        AudioManager.PlaySound(AudioManager.Sound.ButtonUI);
         SceneManager.LoadScene("Game", LoadSceneMode.Additive);
         transform.GetChild(0).gameObject.SetActive(false);
     }
     private void MainMenu()
-    {        
+    {
+        AudioManager.PlaySound(AudioManager.Sound.ButtonUI);
         mainMenuUI.SetActive(true);
         transform.GetChild(0).gameObject.SetActive(false);
     }

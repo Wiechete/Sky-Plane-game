@@ -10,6 +10,8 @@ public class OpenSettingsButton : MonoBehaviour
 
     private void Awake()
     {
-        button.onClick.AddListener(() => { settings.SetActive(true); });
+        button.onClick.AddListener(() => { settings.SetActive(true);
+            AudioManager.PlaySound(AudioManager.Sound.ButtonUI);
+        });
     }
 }
