@@ -24,14 +24,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2105206254171661799}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.625, y: 0.016, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.074369594, w: 0.99723077}
+  m_LocalPosition: {x: 1.904, y: -0.172, z: 0}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 17173557657527074}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 8.53}
 --- !u!212 &3043455014313503918
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -111,7 +111,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2875291575742949922}
-  m_LocalRotation: {x: -0.051028755, y: -0.9986972, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.54, y: -4.64, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -120,7 +120,7 @@ Transform:
   - {fileID: 1690178234211507785}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 5.85}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4871032655337410025
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -162,8 +162,8 @@ SpriteRenderer:
   m_SortingLayerID: -2046222411
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -590224333, guid: f9340697d8aa38644a2194585c6f6c00, type: 3}
-  m_Color: {r: 0.9652157, g: 1, b: 0, a: 1}
+  m_Sprite: {fileID: -1724671569, guid: 49e19a1723fdb994f986eec78c355bbc, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -205,8 +205,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.22}
-  m_Size: {x: 3.43, y: 1.98}
+  m_Offset: {x: 0.0115798665, y: -0.054058142}
+  m_Size: {x: 3.8391726, y: 1.0150212}
   m_Direction: 1
 --- !u!50 &-3977431156582851301
 Rigidbody2D:
