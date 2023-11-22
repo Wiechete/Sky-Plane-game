@@ -20,9 +20,21 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private GameObject explosion;
     bool isAlreadySpawned = false;
     Vector3 movementBeforeSpawn = Vector3.zero;
+
+    public AudioSource audioSource;
+    public float volumeMult;
     private void Start()
     {
         StartCoroutine("SpawnPlane");
+    }
+
+    private void Update()
+    {
+        if(playerPlane == null) Destroy(gameObject);
+        if (playerPlane != null && Vector3.Distance(transform.position, playerPlane.transform.position) < 12)
+            audioSource.volume = volumeMult * Mathf.Pow(12 - Vector3.Distance(transform.position, playerPlane.transform.position), 2);
+        else
+            audioSource.volume = 0;
     }
 
     IEnumerator SpawnPlane()
