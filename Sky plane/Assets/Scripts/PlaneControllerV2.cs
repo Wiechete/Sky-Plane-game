@@ -180,7 +180,7 @@ public class PlaneControllerV2 : MonoBehaviour
             bigWheelVisual.transform.position = bigWheel.position;
             Debug.DrawRay(bigWheelOrigin.position, bigWheelLenght.normalized * bigWheelLenght.magnitude, Color.blue, 0.1f);
         }
-        if (!isOnGround && didBigWheelTouch) AudioManager.PlaySound(AudioManager.Sound.PlaneTire);
+        if (!isOnGround && didBigWheelTouch && framesSinceOnGround > 30) AudioManager.PlaySound(AudioManager.Sound.PlaneTire);
         isOnGround = didBigWheelTouch;        
         if(isOnGround) framesSinceOnGround = 0;
 
@@ -268,7 +268,7 @@ public class PlaneControllerV2 : MonoBehaviour
             totalImpulse += contact.normalImpulse;
         }
         //Debug.Log(totalImpulse);
-        if(totalImpulse > 5) AudioManager.PlaySound(AudioManager.Sound.IslandHit);
+        if(totalImpulse > 1) AudioManager.PlaySound(AudioManager.Sound.IslandHit);
         if (totalImpulse > 20) totalImpulse *= 1.5f;
         TakeDamage(totalImpulse);
     }
