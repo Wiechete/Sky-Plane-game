@@ -77,6 +77,7 @@ public class MainMenu : MonoBehaviour
         //}
         AudioManager.PlaySound(AudioManager.Sound.ButtonUI);
         SceneManager.LoadScene("Game", LoadSceneMode.Additive);
+        if(ScoreManager.previousBest == 0) UIManager.tutorialUI.gameObject.SetActive(true);
         gameObject.SetActive(false);
     }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    static int previousBest;
+    public static int previousBest;
 
 
     private void Awake()

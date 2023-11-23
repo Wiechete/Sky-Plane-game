@@ -16,6 +16,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private AmmoUI _ammoUI;
     public static AmmoUI ammoUI;
 
+    [SerializeField] private TutorialUI _tutorialUI;
+    public static TutorialUI tutorialUI;
+
 
     void Awake()
     {
@@ -23,6 +26,7 @@ public class UIManager : MonoBehaviour
         gameOverlUI = _gameOverlUI;
         distanceUI = _distanceUI;
         ammoUI = _ammoUI;
+        tutorialUI = _tutorialUI;
     }
 
 }

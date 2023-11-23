@@ -69,9 +69,9 @@ public class AudioManager : MonoBehaviour
         mainMusicGameObject = gameObject;
         _mainMusicVolume = mainMusicVolume;
 
-        masterVolume = PlayerPrefs.GetFloat("MasterVolume", 1f);
-        musicVolume = PlayerPrefs.GetFloat("MusicVolume", 1f);
-        sfxVolume = PlayerPrefs.GetFloat("sfxVolume", 1f);
+        masterVolume = PlayerPrefs.GetFloat("MasterVolume", 0.75f);
+        musicVolume = PlayerPrefs.GetFloat("MusicVolume", 0.75f);
+        sfxVolume = PlayerPrefs.GetFloat("sfxVolume", 0.75f);
     }
 
     public static void PlaySound(Sound sound)

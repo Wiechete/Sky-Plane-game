@@ -1,9 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
 public class SpawnManager : MonoBehaviour
 {
@@ -52,7 +50,7 @@ public class SpawnManager : MonoBehaviour
 
 
     IEnumerator SpawnIslandsCoroutine()
-    {
+    {        
         yield return new WaitForSeconds(islandsCooldown);
         SpawnIsland();
         DespawnIslands();
@@ -83,6 +81,7 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnIsland()
     {
+        if (planeController.transform.position.x < -5) return;
         for (int i = 0; i < 5; i++)
         {
             Vector3 position = GetSpawnPosition();
@@ -99,6 +98,7 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnBalloon()
     {
+        if (planeController.transform.position.x < -5) return;
         for (int i = 0; i < 5; i++)
         {
             Vector3 position = GetSpawnPosition();
@@ -113,6 +113,8 @@ public class SpawnManager : MonoBehaviour
         }
     }
     void SpawnEnemyPlane(){
+        if (planeController.transform.position.x < 0) return;
+
         GameObject prefab = enemyPlanePrefabs[Random.Range(0, enemyPlanePrefabs.Length)];
         Vector3 position = new Vector3(planeController.transform.position.x - 10, Random.Range(0, 30));
         GameObject enemyPlane = Instantiate(prefab, enemiesParent);
@@ -122,6 +124,7 @@ public class SpawnManager : MonoBehaviour
     }
     void SpawnCloud()
     {
+        if (planeController.transform.position.x < -5) return;
         for (int i = 0; i < 5; i++)
         {
             Vector3 position = GetSpawnPosition();
