@@ -10,6 +10,7 @@ public class WeaponBalloon : MonoBehaviour
     {
         if (collision.TryGetComponent(out WeaponController weaponController))
         {
+            AudioManager.PlaySound(AudioManager.Sound.BalloonPickup);
             weaponController.ChangeWeapon(weaponIndex);
             Destroy(gameObject);
         }

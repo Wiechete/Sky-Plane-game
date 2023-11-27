@@ -1,20 +1,23 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
     public GameObject[] islandsPrefabs;
+    public GameObject[] rareIslandsPrefabs;
     public GameObject[] balloonsPrefabs;
     public GameObject[] enemyPlanePrefabs;
+    public GameObject[] cloudsPrefabs;
 
     public Transform islandsParent;
+    public Transform cloudsParent;
     public Transform balloonsParent;
     public Transform enemiesParent;
 
     List<GameObject> islands = new List<GameObject>();
+    List<GameObject> clouds = new List<GameObject>();
     List<GameObject> balloons = new List<GameObject>();
     List<GameObject> enemyPlanes = new List<GameObject>();
     public PlaneControllerV2 planeController;
@@ -22,21 +25,32 @@ public class SpawnManager : MonoBehaviour
     public Vector2 minPosition;
     public Vector2 maxPosition;
 
-    public LayerMask layerMask;
+    public LayerMask islandLayerMask;
+    public LayerMask balloonLayerMask;
+    public LayerMask cloudsLayerMask;
 
     public float islandsCooldown;
     public float balloonsCooldown;
     public float enemyPlanesCooldown;
+    public float cloudsCooldown;
 
     private void Start()
     {
         StartCoroutine("SpawnIslandsCoroutine");
         StartCoroutine("SpawnBalloonsCoroutine");
         StartCoroutine("SpawnEnemyPlanesCoroutine");
+        StartCoroutine("SpawnCloudsCoroutine");
     }
 
-    IEnumerator SpawnIslandsCoroutine()
+    private void Update()
     {
+        if (planeController == null) Destroy(gameObject);
+    }
+
+
+
+    IEnumerator SpawnIslandsCoroutine()
+    {        
         yield return new WaitForSeconds(islandsCooldown);
         SpawnIsland();
         DespawnIslands();
@@ -57,16 +71,24 @@ public class SpawnManager : MonoBehaviour
         DespawnEnemyPlane();
         StartCoroutine("SpawnEnemyPlanesCoroutine");
     }
+    IEnumerator SpawnCloudsCoroutine()
+    {
+        yield return new WaitForSeconds(cloudsCooldown);
+        SpawnCloud();
+        DespawnClouds();
+        StartCoroutine("SpawnCloudsCoroutine");
+    }
 
     void SpawnIsland()
     {
+        if (planeController.transform.position.x < -5) return;
         for (int i = 0; i < 5; i++)
         {
             Vector3 position = GetSpawnPosition();
 
             GameObject island = islandsPrefabs[Random.Range(0, islandsPrefabs.Length)];
             Vector2 size = island.GetComponent<BoxCollider2D>().size * island.transform.localScale;
-            if (Physics2D.OverlapBox(position, size, 0, layerMask) == null)
+            if (Physics2D.OverlapBox(position, size, 0, islandLayerMask + balloonLayerMask) == null)
             {
                 islands.Add(Instantiate(island, transform.position + position, Quaternion.identity, islandsParent));
                 break;
@@ -76,13 +98,14 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnBalloon()
     {
+        if (planeController.transform.position.x < -5) return;
         for (int i = 0; i < 5; i++)
         {
             Vector3 position = GetSpawnPosition();
 
             GameObject balloon = balloonsPrefabs[Random.Range(0, balloonsPrefabs.Length)];
             Vector2 size = balloon.GetComponent<BoxCollider2D>().size * balloon.transform.localScale;
-            if (Physics2D.OverlapBox(position, size, 0, layerMask) == null)
+            if (Physics2D.OverlapBox(position, size, 0, islandLayerMask + balloonLayerMask) == null)
             {
                 balloons.Add(Instantiate(balloon, transform.position + position, Quaternion.identity, balloonsParent));
                 break;
@@ -90,12 +113,30 @@ public class SpawnManager : MonoBehaviour
         }
     }
     void SpawnEnemyPlane(){
+        if (planeController.transform.position.x < 0) return;
+
         GameObject prefab = enemyPlanePrefabs[Random.Range(0, enemyPlanePrefabs.Length)];
         Vector3 position = new Vector3(planeController.transform.position.x - 10, Random.Range(0, 30));
         GameObject enemyPlane = Instantiate(prefab, enemiesParent);
         enemyPlane.transform.position = position;
         enemyPlane.GetComponent<EnemyController>().playerPlane = planeController;
         enemyPlanes.Add(enemyPlane);
+    }
+    void SpawnCloud()
+    {
+        if (planeController.transform.position.x < -5) return;
+        for (int i = 0; i < 5; i++)
+        {
+            Vector3 position = GetSpawnPosition();
+
+            GameObject cloud = cloudsPrefabs[Random.Range(0, cloudsPrefabs.Length)];
+            Vector2 size = cloud.GetComponent<BoxCollider2D>().size * cloud.transform.localScale;
+            if (Physics2D.OverlapBox(position, size, 0, cloudsLayerMask) == null)
+            {
+                clouds.Add(Instantiate(cloud, transform.position + position, Quaternion.identity, cloudsParent));
+                break;
+            }
+        }
     }
 
     Vector3 GetSpawnPosition()
@@ -152,6 +193,23 @@ public class SpawnManager : MonoBehaviour
             {
                 balloons.Remove(plane);
                 Destroy(plane);
+            }
+        }
+    }
+    void DespawnClouds()
+    {
+        for (int i = 0; i < clouds.Count; i++)
+        {
+            GameObject cloud = clouds[i];
+            if (cloud == null)
+            {
+                clouds.RemoveAt(i);
+                continue;
+            }
+            if (planeController.transform.position.x - cloud.transform.position.x > 20)
+            {
+                clouds.Remove(cloud);
+                Destroy(cloud);
             }
         }
     }

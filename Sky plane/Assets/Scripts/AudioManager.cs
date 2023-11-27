@@ -37,12 +37,15 @@ public class AudioManager : MonoBehaviour
         DefaultShoot,
         RifleShoot,
         RPGShoot,
-        Damage,
-        BarrelExplosion,
-        PlaneExplosion,
-        BalloonPickup,
-        GameOver,
-        PlaneSuspension
+        ShootHit,
+        IslandHit,
+        PlaneExplosion1,
+        PlaneExplosion2,
+        PlaneExplosion3,
+        PlaneExplosion4,
+        BalloonPickup,        
+        PlaneTire,
+        ButtonUI
     }
 
     [System.Serializable]
@@ -66,9 +69,9 @@ public class AudioManager : MonoBehaviour
         mainMusicGameObject = gameObject;
         _mainMusicVolume = mainMusicVolume;
 
-        masterVolume = PlayerPrefs.GetFloat("MasterVolume", 0.5f);
-        musicVolume = PlayerPrefs.GetFloat("MusicVolume", 0.5f);
-        sfxVolume = PlayerPrefs.GetFloat("sfxVolume", 0.5f);
+        masterVolume = PlayerPrefs.GetFloat("MasterVolume", 0.75f);
+        musicVolume = PlayerPrefs.GetFloat("MusicVolume", 0.75f);
+        sfxVolume = PlayerPrefs.GetFloat("sfxVolume", 0.75f);
     }
 
     public static void PlaySound(Sound sound)
@@ -94,6 +97,7 @@ public class AudioManager : MonoBehaviour
         AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
         audioSource.volume = sfxVolume * soundInfo.volume * masterVolume;
         audioSource.PlayOneShot(soundInfo.audioClip);
+        Destroy(soundGameObject, soundInfo.audioClip.length);
     }
     public static void PlaySound(SoundInfo soundInfo, Vector3 position)
     {

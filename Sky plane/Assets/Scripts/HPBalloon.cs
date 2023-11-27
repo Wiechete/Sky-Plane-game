@@ -10,6 +10,7 @@ public class HPBalloon : MonoBehaviour
     {
         if (collision.TryGetComponent(out PlaneControllerV2 planeController))
         {
+            AudioManager.PlaySound(AudioManager.Sound.BalloonPickup);
             planeController.AddHP(HPAmount);
             Destroy(gameObject);
         }

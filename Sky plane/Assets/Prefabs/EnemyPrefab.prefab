@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 973544424519394655}
   - component: {fileID: 4170219155996233773}
   - component: {fileID: -440275035202438388}
+  - component: {fileID: -5513746808367136848}
   m_Layer: 9
   m_Name: EnemyPrefab
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 286601546512766245}
   m_LocalRotation: {x: -0.046060417, y: -0.9989387, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.5136461, y: -2.661809, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -76,8 +77,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2046222411
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -590224333, guid: f9340697d8aa38644a2194585c6f6c00, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -102,12 +103,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 038b75f49e2a8a343834bad2b89cf689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  planeWarningPrefab: {fileID: 3945499992111844887, guid: 278f8dd95ac0bd447b812a94fe5dc9f8, type: 3}
   planeSpeed: 20
   HP: 2
   bulletPrefab: {fileID: 501066109004788220, guid: 578dcd348749d5b439e582b0e4e6c187, type: 3}
   shootingCooldown: 0.25
   playerPlane: {fileID: 0}
   shootingPoint: {fileID: 6867934360407191926}
+  explosion: {fileID: 5157727756496537319, guid: d1c689f4e059a60478428243ef73a8bb, type: 3}
+  audioSource: {fileID: -5513746808367136848}
+  volumeMult: 6
 --- !u!70 &4170219155996233773
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -145,6 +150,102 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!82 &-5513746808367136848
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286601546512766245}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 236c67c52f6c400418e3f7ab9029b502, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &4119123560490425056
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,6 +256,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3704660139952464206}
   - component: {fileID: 1018278433717081001}
+  - component: {fileID: 4758782142950559145}
   m_Layer: 9
   m_Name: enemy_plane_sheet_0
   m_TagString: Untagged
@@ -215,8 +317,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2046222411
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -1059791002, guid: f9340697d8aa38644a2194585c6f6c00, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -229,6 +331,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &4758782142950559145
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4119123560490425056}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b8effca8f236ead4f968dec6a44752ac, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6198666251843444212
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,8 +453,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2046222411
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -223373613, guid: f9340697d8aa38644a2194585c6f6c00, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

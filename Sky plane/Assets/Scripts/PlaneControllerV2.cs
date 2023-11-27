@@ -53,7 +53,18 @@ public class PlaneControllerV2 : MonoBehaviour
 
     [SerializeField] private float outOfBoundsDamage;
 
+    [SerializeField] private GameObject explosion;
+    [SerializeField] private GameObject planeParts;
 
+
+    [SerializeField] private AudioSource audioSource1;
+    [SerializeField] private AudioSource audioSource2;
+    [SerializeField] private float volumeMult1;
+    [SerializeField] private float volumeMult2;
+
+
+    public static int planesDestroyed = 0;
+    bool gameOver = false;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -61,13 +72,32 @@ public class PlaneControllerV2 : MonoBehaviour
 
         smallWheelLenght = smallWheel.localPosition - smallWheelOrigin.localPosition;
         bigWheelLenght = bigWheel.localPosition - bigWheelOrigin.localPosition;
+        planesDestroyed = 0;
+
+        planeFuel = planeMaxFuel; planeHP = planeMaxHP;
+        UIManager.healthFuelUI.UpdateUI(planeHP, planeMaxHP, planeFuel, planeMaxFuel);
+    }
+
+    private void Update()
+    {
+        float horizontal = Input.GetAxis("Horizontal");
+        if(horizontal < 0) horizontal = 0;
+        float volume1 = volumeMult1 * AudioManager.sfxVolume * AudioManager.masterVolume * Mathf.Max(1 - horizontal, 1 - (currentSpeed / planeMaxSpeed));
+        float volume2 = (currentSpeed / planeMaxSpeed) * volumeMult2 * AudioManager.sfxVolume * horizontal * AudioManager.masterVolume;
+
+        float maxVolumeChange = 0.005f;
+
+        volume1 = Mathf.Clamp(volume1, audioSource1.volume - maxVolumeChange, audioSource1.volume + maxVolumeChange);
+        volume2 = Mathf.Clamp(volume2, audioSource2.volume - maxVolumeChange, audioSource2.volume + maxVolumeChange);
+
+        audioSource1.volume = volume1;
+        audioSource2.volume = volume2;
     }
 
     void FixedUpdate()
     {
         currentSpeed = Vector3.Dot(rb.velocity, Vector3.right);
-        framesSinceOnGround++;
-        //if (rb.velocity.x < 0) rb.velocity = new Vector2(0, rb.velocity.y);
+        framesSinceOnGround++;       
         
 
         float horizontal = Input.GetAxis("Horizontal");
@@ -91,7 +121,7 @@ public class PlaneControllerV2 : MonoBehaviour
 
         Vector3 accelerationForce = transform.right * horizontal * planePower.Evaluate(planeSpeedVertical / planeMaxSpeed) * planePowerMult;
         if (horizontal < 0) accelerationForce *= 0.3f;
-
+        if (planeFuel <= 0) accelerationForce *= 0;
 
         float planeUpForce = -planeSpeedHorizontal * planeUpForceMult * planeUpForceBySpeed.Evaluate(rb.velocity.magnitude / planeMaxSpeed * 1.5f);        
 
@@ -150,7 +180,8 @@ public class PlaneControllerV2 : MonoBehaviour
             bigWheelVisual.transform.position = bigWheel.position;
             Debug.DrawRay(bigWheelOrigin.position, bigWheelLenght.normalized * bigWheelLenght.magnitude, Color.blue, 0.1f);
         }
-        isOnGround = didBigWheelTouch;
+        if (!isOnGround && didBigWheelTouch && framesSinceOnGround > 30) AudioManager.PlaySound(AudioManager.Sound.PlaneTire);
+        isOnGround = didBigWheelTouch;        
         if(isOnGround) framesSinceOnGround = 0;
 
         CalculateFuelUsage(horizontal, planeRotationZ);
@@ -205,9 +236,16 @@ public class PlaneControllerV2 : MonoBehaviour
     public void TakeDamage(float damageAmount)
     {
         planeHP -= damageAmount;
-        if(planeHP < 0){
+        if(planeHP < 0 && !gameOver){
+            PlayExplosionSound();
+            gameOver = true;
             planeHP = 0;
-            UIManager.gameOverlUI.gameObject.SetActive(true);
+            GameObject expl = Instantiate(explosion);
+            GameObject parts = Instantiate(planeParts);
+            expl.transform.position = transform.position;
+            parts.transform.position = transform.position;
+            UIManager.gameOverlUI.StartCoroutine(UIManager.gameOverlUI.OpenUI(Mathf.RoundToInt(transform.position.x  + 12.5f), planesDestroyed));
+            Destroy(gameObject);
         }
         UIManager.healthFuelUI.UpdateUI(planeHP, planeMaxHP, planeFuel, planeMaxFuel);
     }
@@ -215,6 +253,7 @@ public class PlaneControllerV2 : MonoBehaviour
     void CalculateOutOfBoundsDamage()
     {
         if(transform.position.y < minHeight || transform.position.y > maxHeight){
+            if (planeFuel < 0) TakeDamage(1000);
             TakeDamage(Time.deltaTime * outOfBoundsDamage);
         }
     }
@@ -229,6 +268,7 @@ public class PlaneControllerV2 : MonoBehaviour
             totalImpulse += contact.normalImpulse;
         }
         //Debug.Log(totalImpulse);
+        if(totalImpulse > 1) AudioManager.PlaySound(AudioManager.Sound.IslandHit);
         if (totalImpulse > 20) totalImpulse *= 1.5f;
         TakeDamage(totalImpulse);
     }
@@ -240,5 +280,14 @@ public class PlaneControllerV2 : MonoBehaviour
             rb.AddForce((transform.position - collision.transform.position) * 100, ForceMode2D.Force);
             enemyController.Explode();
         }
-    }    
+    }
+
+    private void PlayExplosionSound()
+    {
+        int index = Random.Range(0, 4);
+        if (index == 0) AudioManager.PlaySound(AudioManager.Sound.PlaneExplosion1);
+        if (index == 1) AudioManager.PlaySound(AudioManager.Sound.PlaneExplosion2);
+        if (index == 2) AudioManager.PlaySound(AudioManager.Sound.PlaneExplosion3);
+        if (index == 3) AudioManager.PlaySound(AudioManager.Sound.PlaneExplosion4);
+    }
 }

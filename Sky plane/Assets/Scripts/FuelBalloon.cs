@@ -10,6 +10,7 @@ public class FuelBalloon : MonoBehaviour
     {
         if (collision.TryGetComponent(out PlaneControllerV2 planeController))
         {
+            AudioManager.PlaySound(AudioManager.Sound.BalloonPickup);
             planeController.AddFuel(fuelAmount);
             Destroy(this.gameObject);
         }
