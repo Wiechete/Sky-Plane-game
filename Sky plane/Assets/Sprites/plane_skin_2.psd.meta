@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4dceee6dace74c448a992d7aa8727ec8
+guid: 59cce5ef13027b24e841da0a1a91e776
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -108,10 +108,10 @@ TextureImporter:
       name: plane_skin_2_0
       rect:
         serializedVersion: 2
-        x: 433
-        y: 886
-        width: 89
-        height: 90
+        x: 542
+        y: 814
+        width: 80
+        height: 81
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,8 +119,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad228366e1b19c84aac9ade3fd0290e1
-      internalID: -61955999
+      spriteID: b21879b45c22bb647bc9f3fc8a8bd195
+      internalID: 1073676281
       vertices: []
       indices: 
       edges: []
@@ -129,10 +129,10 @@ TextureImporter:
       name: plane_skin_2_1
       rect:
         serializedVersion: 2
-        x: 673
-        y: 883
-        width: 119
-        height: 106
+        x: 757
+        y: 811
+        width: 106
+        height: 95
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92b5b81dd48308949bab5d936c393760
-      internalID: -1416961781
+      spriteID: 67d3abdfe201d0b42bfdc18aa59e06d9
+      internalID: 2113806304
       vertices: []
       indices: 
       edges: []
@@ -150,10 +150,10 @@ TextureImporter:
       name: plane_skin_2_2
       rect:
         serializedVersion: 2
-        x: 1139
-        y: 883
-        width: 93
-        height: 106
+        x: 1174
+        y: 811
+        width: 83
+        height: 95
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,8 +161,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e37ab9b48b45f25409ae63916744df60
-      internalID: 1290589928
+      spriteID: ba731f5a513d65848ba18bd74fa39e9a
+      internalID: -442928586
       vertices: []
       indices: 
       edges: []
@@ -171,10 +171,10 @@ TextureImporter:
       name: plane_skin_2_3
       rect:
         serializedVersion: 2
-        x: 1339
-        y: 910
-        width: 49
-        height: 49
+        x: 1353
+        y: 836
+        width: 44
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,8 +182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 30f75f7a0bcf61e48a3aa2592945e8a8
-      internalID: 1453634869
+      spriteID: aa8a13128863f2f408f2c935ef592400
+      internalID: -2018482748
       vertices: []
       indices: 
       edges: []
@@ -192,10 +192,10 @@ TextureImporter:
       name: plane_skin_2_4
       rect:
         serializedVersion: 2
-        x: 1340
-        y: 787
-        width: 379
-        height: 46
+        x: 1354
+        y: 726
+        width: 339
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,8 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0334609a8cd3eaa47b5ad91290e5b964
-      internalID: -1299087190
+      spriteID: e80a097455f490c47b60b496a8f4b6f8
+      internalID: -2034808838
       vertices: []
       indices: 
       edges: []
@@ -213,10 +213,10 @@ TextureImporter:
       name: plane_skin_2_5
       rect:
         serializedVersion: 2
-        x: 1
-        y: 205
-        width: 1919
-        height: 557
+        x: 0
+        y: 208
+        width: 1912
+        height: 514
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,8 +224,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a08c6a47e0d5ee47b0738f3043e88b8
-      internalID: 123230175
+      spriteID: 12843461b88ef614595847c09e0f669f
+      internalID: 1713835734
       vertices: []
       indices: 
       edges: []
@@ -241,12 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      plane_skin_2_0: -61955999
-      plane_skin_2_1: -1416961781
-      plane_skin_2_2: 1290589928
-      plane_skin_2_3: 1453634869
-      plane_skin_2_4: -1299087190
-      plane_skin_2_5: 123230175
+      plane_skin_2_0: 1073676281
+      plane_skin_2_1: 2113806304
+      plane_skin_2_2: -442928586
+      plane_skin_2_3: -2018482748
+      plane_skin_2_4: -2034808838
+      plane_skin_2_5: 1713835734
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 1
