@@ -24,19 +24,29 @@ public class GameOverUI : MonoBehaviour
 
     public GameObject mainMenuUI;
 
+    private bool isGameOverUIOpen = false;
+
     private void Awake()
     {
         playAgainButton.onClick.AddListener(PlayAgain);
         mainMenuButton.onClick.AddListener(MainMenu);
     }
 
+    private void Update()
+    {
+        if (isGameOverUIOpen && Input.GetKeyDown(KeyCode.Return))
+            PlayAgain();
+    }
+
     private void PlayAgain(){
+        isGameOverUIOpen = false;
         AudioManager.PlaySound(AudioManager.Sound.ButtonUI);
         SceneManager.LoadScene("Game", LoadSceneMode.Additive);
         transform.GetChild(0).gameObject.SetActive(false);
     }
     private void MainMenu()
     {
+        isGameOverUIOpen = false;
         AudioManager.PlaySound(AudioManager.Sound.ButtonUI);
         mainMenuUI.SetActive(true);
         transform.GetChild(0).gameObject.SetActive(false);
@@ -45,6 +55,8 @@ public class GameOverUI : MonoBehaviour
     public IEnumerator OpenUI(int distance, int planesDestroyed)
     {
         yield return new WaitForSeconds(2f);
+        isGameOverUIOpen = true;
+
         int currentScore = distance + 200 * planesDestroyed;
         int currentBest = ScoreManager.AddNewScore(currentScore);
 
