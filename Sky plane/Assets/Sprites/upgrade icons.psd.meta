@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1b341e45793c21747ab08a5d43da7794
+guid: 389288b88bee42d4391dcddb2bdf1257
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -119,8 +119,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c120706e9846e9d4c95c83afcf0ac9e7
-      internalID: 855398117
+      spriteID: 42709c03acf617e49abe36e45e857152
+      internalID: 1527585798
       vertices: []
       indices: 
       edges: []
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be78db47099637449a8ea9aac43dc897
-      internalID: 2105676894
+      spriteID: b589d307018b59f41861debf2ff0be45
+      internalID: -1833216728
       vertices: []
       indices: 
       edges: []
@@ -150,8 +150,8 @@ TextureImporter:
       name: upgrade icons_2
       rect:
         serializedVersion: 2
-        x: 41
-        y: 584
+        x: 55
+        y: 587
         width: 659
         height: 192
       alignment: 0
@@ -161,8 +161,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb32aaa8608e0e84284e05c35a07a3c5
-      internalID: 1225048158
+      spriteID: 237c6d07dcef6c643a58e328304e339f
+      internalID: 691336795
       vertices: []
       indices: 
       edges: []
@@ -182,71 +182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c60458d1556928408f5811f8a8a2e38
-      internalID: -1868698423
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: upgrade icons_4
-      rect:
-        serializedVersion: 2
-        x: 45
-        y: 334
-        width: 659
-        height: 192
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9ac72f1a626a5c840ba04266de8fff7d
-      internalID: -82043114
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: upgrade icons_5
-      rect:
-        serializedVersion: 2
-        x: 803
-        y: 333
-        width: 660
-        height: 194
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 63eb13c587165b94bb8e38608f12f728
-      internalID: 1652923977
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: upgrade icons_6
-      rect:
-        serializedVersion: 2
-        x: 43
-        y: 82
-        width: 659
-        height: 192
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ac164435be379f64a89eace6d9c4fbaf
-      internalID: 935710734
+      spriteID: 7298a9c1ad13fbd43aa10079db40c69b
+      internalID: 987338763
       vertices: []
       indices: 
       edges: []
@@ -262,13 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      upgrade icons_0: 855398117
-      upgrade icons_1: 2105676894
-      upgrade icons_2: 1225048158
-      upgrade icons_3: -1868698423
-      upgrade icons_4: -82043114
-      upgrade icons_5: 1652923977
-      upgrade icons_6: 935710734
+      upgrade icons_0: 1527585798
+      upgrade icons_1: -1833216728
+      upgrade icons_2: 691336795
+      upgrade icons_3: 987338763
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 1
