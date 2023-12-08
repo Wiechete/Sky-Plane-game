@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c7afb5ca4e4666946b10eb533f69e6ec
+guid: 53f363f3efe51d247b55ec483ffb4ae5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -108,10 +108,10 @@ TextureImporter:
       name: Attack_jet_plane_skin_sheet_0
       rect:
         serializedVersion: 2
-        x: 727
-        y: 843
-        width: 247
-        height: 155
+        x: 1473
+        y: 785
+        width: 258
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,8 +119,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8e53e77d275d3649a3f73a01be1232f
-      internalID: 865539407
+      spriteID: bd5900abf7117474da6ed227cc5d9a4a
+      internalID: -1018197467
       vertices: []
       indices: 
       edges: []
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd02b00a6af0c934784dc82128c3aa89
-      internalID: 897299192
+      spriteID: aad251ef91a215a44bf1b0b88926afde
+      internalID: -1799638313
       vertices: []
       indices: 
       edges: []
@@ -161,8 +161,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8d1b44706ad6b649981a478a5f062c3
-      internalID: -1031775576
+      spriteID: 56558bb92983a81419557cbe63779ce5
+      internalID: 1977497592
       vertices: []
       indices: 
       edges: []
@@ -182,8 +182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a98489d925841964586fa45503b353fe
-      internalID: -799898895
+      spriteID: 727b7084936dee6468b3ed4f9431a87a
+      internalID: 1879293541
       vertices: []
       indices: 
       edges: []
@@ -203,8 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: daeacc5a5d7255d45866d153e7607e34
-      internalID: -11493205
+      spriteID: 8abab95ada3324a49ae76e5e191613ae
+      internalID: 1855271097
       vertices: []
       indices: 
       edges: []
@@ -224,8 +224,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5efcf7525d64b7b4abbb504b95031489
-      internalID: -1971964641
+      spriteID: dc32a8c0964f53b4d8d1b64c1129b4a1
+      internalID: -1516728008
       vertices: []
       indices: 
       edges: []
@@ -241,12 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Attack_jet_plane_skin_sheet_0: 865539407
-      Attack_jet_plane_skin_sheet_1: 897299192
-      Attack_jet_plane_skin_sheet_2: -1031775576
-      Attack_jet_plane_skin_sheet_3: -799898895
-      Attack_jet_plane_skin_sheet_4: -11493205
-      Attack_jet_plane_skin_sheet_5: -1971964641
+      Attack_jet_plane_skin_sheet_0: -1018197467
+      Attack_jet_plane_skin_sheet_1: -1799638313
+      Attack_jet_plane_skin_sheet_2: 1977497592
+      Attack_jet_plane_skin_sheet_3: 1879293541
+      Attack_jet_plane_skin_sheet_4: 1855271097
+      Attack_jet_plane_skin_sheet_5: -1516728008
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 1
