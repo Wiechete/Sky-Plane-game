@@ -3334,7 +3334,7 @@ MonoBehaviour:
   _ammoUI: {fileID: 613747236}
   _tutorialUI: {fileID: 205441012}
   _garageUI: {fileID: 1534219802}
-  _moneyUI: {fileID: 0}
+  _moneyUI: {fileID: 1967467879}
 --- !u!1 &665138229
 GameObject:
   m_ObjectHideFlags: 0
