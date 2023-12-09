@@ -14,4 +14,13 @@ public class OpenSettingsButton : MonoBehaviour
             AudioManager.PlaySound(AudioManager.Sound.ButtonUI);
         });
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && !UIManager.gameOverlUI.isGameOverUIOpen)
+            if(settings.activeSelf)
+                settings.GetComponent<SettingsUI>().CloseSettings();
+            else 
+                settings.SetActive(true);
+    }
 }

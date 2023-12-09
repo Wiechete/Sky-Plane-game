@@ -75,6 +75,7 @@ public class PlaneControllerV2 : MonoBehaviour
         planesDestroyed = 0;
 
         planeFuel = planeMaxFuel; planeHP = planeMaxHP;
+        planeHP = 10;
         UIManager.healthFuelUI.UpdateUI(planeHP, planeMaxHP, planeFuel, planeMaxFuel);
     }
 
@@ -244,7 +245,7 @@ public class PlaneControllerV2 : MonoBehaviour
             GameObject parts = Instantiate(planeParts);
             expl.transform.position = transform.position;
             parts.transform.position = transform.position;
-            UIManager.gameOverlUI.StartCoroutine(UIManager.gameOverlUI.OpenUI(Mathf.RoundToInt(transform.position.x  + 12.5f), planesDestroyed));
+            PlaneManager.GameOver(Mathf.RoundToInt(transform.position.x + 12.5f), planesDestroyed);
             Destroy(gameObject);
         }
         UIManager.healthFuelUI.UpdateUI(planeHP, planeMaxHP, planeFuel, planeMaxFuel);
