@@ -23,50 +23,20 @@ public class MainMenu : MonoBehaviour
         setPlayerNameButton.onClick.AddListener(SetPlayerNameButtonClicked);
     }
 
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Return)){
+            if (setPlayerNameUI.activeSelf) SetPlayerNameButtonClicked();
+            else PlayButtonClicked();
+        }
+    }
+
     void SetPlayerNameButtonClicked()
     {
         ScoreManager.SetPlayerName(playerNameInputField.text);
         setPlayerNameUI.SetActive(false);
         PlayButtonClicked();
     }
-
-    //void HighscoreSelectButtonClicked(int index)
-    //{
-    //    highscoreButtonIndex = index;
-    //    highscoreLevelSelectedText.text = "Level " + index;
-    //    UpdateLocalHighscores();
-    //    globalTimesText.text = "";
-    //    globalTimesNamesText.text = "";
-    //    loadingText.text = "Loading...";
-    //    ScoreManager.RefreshLevelTimesGlobal(index, UpdateGlobalHighscores);
-    //}
-    //void UpdateLocalHighscores()
-    //{
-    //    float[] bestTimes = ScoreManager.GetLevelScores(highscoreButtonIndex);
-    //    string text = "";
-
-    //    for (int i = 0; i < bestTimes.Length; i++)
-    //    {
-    //        text += bestTimes[i].ToString("0.00", CultureInfo.InvariantCulture) + "\n";
-    //    }
-    //    localTimesText.text = text;
-    //}
-    //void UpdateGlobalHighscores()
-    //{
-    //    float[] bestTimes = ScoreManager.GetLevelScoresGlobal(highscoreButtonIndex);
-    //    string[] playerNames = ScoreManager.LevelTimesGlobalPlayerNames(highscoreButtonIndex);
-    //    string timeText = "";
-    //    string namesText = "";
-    //    Debug.Log(bestTimes[0]);
-    //    for (int i = 0; i < bestTimes.Length; i++)
-    //    {
-    //        timeText += bestTimes[i].ToString("0.00", CultureInfo.InvariantCulture) + "\n";
-    //        namesText += (i + 1).ToString() + ". " + playerNames[i] + "\n";
-    //    }
-    //    globalTimesText.text = timeText;
-    //    globalTimesNamesText.text = namesText;
-    //    loadingText.text = "";
-    //}
 
     void PlayButtonClicked()
     {
@@ -80,12 +50,6 @@ public class MainMenu : MonoBehaviour
         if(ScoreManager.previousBest == 0) UIManager.tutorialUI.gameObject.SetActive(true);
         gameObject.SetActive(false);
     }
-
-    //void HighscoresButtonClicked()
-    //{
-    //    HighscoreSelectButtonClicked(1);
-    //    highscoresUI.SetActive(true);
-    //}
 
     void SettingsButtonClicked()
     {

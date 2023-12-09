@@ -43,7 +43,7 @@ public class SettingsUI : MonoBehaviour
         AudioManager.sfxVolume = value;
     }
 
-    void CloseSettings(){
+    public void CloseSettings(){
         PlayerPrefs.SetFloat("MasterVolume", AudioManager.masterVolume);
         PlayerPrefs.SetFloat("MusicVolume", AudioManager.musicVolume);
         PlayerPrefs.SetFloat("sfxVolume", AudioManager.sfxVolume);

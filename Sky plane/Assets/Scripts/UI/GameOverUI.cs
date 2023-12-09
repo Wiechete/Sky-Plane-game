@@ -13,6 +13,10 @@ public class GameOverUI : MonoBehaviour
     public TMP_Text currentScoreText;
     public TMP_Text previousBestScoreText;
 
+    public TMP_Text playerMoneyText;
+    public TMP_Text distanceMoneyText;
+    public TMP_Text planesDestroyedMoneyText;
+
 
     public TMP_Text playerNamesText;
     public TMP_Text playerScoresText;
@@ -20,15 +24,17 @@ public class GameOverUI : MonoBehaviour
 
 
     public Button playAgainButton;
+    public Button upgradeButton;
     public Button mainMenuButton;   
 
     public GameObject mainMenuUI;
 
-    private bool isGameOverUIOpen = false;
+    public bool isGameOverUIOpen = false;
 
     private void Awake()
     {
         playAgainButton.onClick.AddListener(PlayAgain);
+        upgradeButton.onClick.AddListener(UpgradeButton);
         mainMenuButton.onClick.AddListener(MainMenu);
     }
 
@@ -44,6 +50,14 @@ public class GameOverUI : MonoBehaviour
         SceneManager.LoadScene("Game", LoadSceneMode.Additive);
         transform.GetChild(0).gameObject.SetActive(false);
     }
+    private void UpgradeButton()
+    {
+        isGameOverUIOpen = false;
+        UIManager.garageUI.OpenUI();
+        AudioManager.PlaySound(AudioManager.Sound.ButtonUI);
+        SceneManager.LoadScene("Game", LoadSceneMode.Additive);
+        transform.GetChild(0).gameObject.SetActive(false);
+    }
     private void MainMenu()
     {
         isGameOverUIOpen = false;
@@ -52,7 +66,7 @@ public class GameOverUI : MonoBehaviour
         transform.GetChild(0).gameObject.SetActive(false);
     }
 
-    public IEnumerator OpenUI(int distance, int planesDestroyed)
+    public IEnumerator OpenUI(int distance, int planesDestroyed, int distanceMoney, int planesDestroyedMoney)
     {
         yield return new WaitForSeconds(2f);
         isGameOverUIOpen = true;
@@ -72,6 +86,11 @@ public class GameOverUI : MonoBehaviour
         planesDestroyedText.text = "Planes destroyed: " + planesDestroyed.ToString();
         currentScoreText.text = "Total: " + currentScore.ToString();
         previousBestScoreText.text = "Previous highscore: " + currentBest.ToString();
+
+        distanceMoneyText.text = "+" + distanceMoney;
+        planesDestroyedMoneyText.text = "+" + planesDestroyedMoney;
+        playerMoneyText.text = PlaneManager.instance.playerMoney.ToString();
+
         transform.GetChild(0).gameObject.SetActive(true);
         SceneManager.UnloadSceneAsync("Game");
 
