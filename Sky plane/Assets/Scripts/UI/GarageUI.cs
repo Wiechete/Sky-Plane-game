@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GarageUI : MonoBehaviour
 {
@@ -85,22 +86,27 @@ public class GarageUI : MonoBehaviour
     private void SelectPlane()
     {
         planeVisuals[selectedPlaneIndex].SetActive(true);
-        OpenUI();
+        UpdateButtons();
     }
 
     public void OpenUI()
     {
         UIGameObject.SetActive(true);
+        SelectPlane();
+    }
 
+    private void UpdateButtons()
+    {
         //upgradeButtonHPText.text = PlaneManager.GetUpgradeCost(selectedPlaneIndex, PlaneUpgrade.HP) + "$";
         //upgradeButtonGasText.text = PlaneManager.GetUpgradeCost(selectedPlaneIndex, PlaneUpgrade.Fuel) + "$";
         //upgradeButtonAmmoText.text = PlaneManager.GetUpgradeCost(selectedPlaneIndex, PlaneUpgrade.Ammo) + "$";
         //upgradeButtonRotationSpeedText.text = PlaneManager.GetUpgradeCost(selectedPlaneIndex, PlaneUpgrade.RotationSpeed) + "$";
-
     }
 
     void CloseUI()
     {
         UIGameObject.SetActive(false);
+        AudioManager.PlaySound(AudioManager.Sound.ButtonUI);
+        SceneManager.LoadScene("Game", LoadSceneMode.Additive);
     }
 }

@@ -55,7 +55,6 @@ public class GameOverUI : MonoBehaviour
         isGameOverUIOpen = false;
         UIManager.garageUI.OpenUI();
         AudioManager.PlaySound(AudioManager.Sound.ButtonUI);
-        SceneManager.LoadScene("Game", LoadSceneMode.Additive);
         transform.GetChild(0).gameObject.SetActive(false);
     }
     private void MainMenu()
