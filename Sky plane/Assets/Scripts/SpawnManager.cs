@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+    public PlaneControllerV2[] planesPrefabs;
+
     public GameObject[] islandsPrefabs;
     public GameObject[] rareIslandsPrefabs;
     public GameObject[] balloonsPrefabs;
@@ -36,6 +38,8 @@ public class SpawnManager : MonoBehaviour
 
     private void Start()
     {
+        //planeController = Instantiate(planesPrefabs[GarageUI.selectedPlaneIndex], transform.parent);
+
         StartCoroutine("SpawnIslandsCoroutine");
         StartCoroutine("SpawnBalloonsCoroutine");
         StartCoroutine("SpawnEnemyPlanesCoroutine");
@@ -46,8 +50,6 @@ public class SpawnManager : MonoBehaviour
     {
         if (planeController == null) Destroy(gameObject);
     }
-
-
 
     IEnumerator SpawnIslandsCoroutine()
     {        

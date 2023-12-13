@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlaneControllerV2 : MonoBehaviour
 {
+    [SerializeField] private int planeIndex;
+
     [SerializeField] private float planeInitialSpeed;
     [SerializeField] private AnimationCurve planePower;
     [SerializeField] private float planePowerMult;
@@ -46,7 +48,7 @@ public class PlaneControllerV2 : MonoBehaviour
 
     [SerializeField] private float planeHP;
     [SerializeField] private int planeMaxHP;
-
+    public float ammoMult;
 
     [SerializeField] private float minHeight;
     [SerializeField] private float maxHeight;
@@ -74,6 +76,11 @@ public class PlaneControllerV2 : MonoBehaviour
         bigWheelLenght = bigWheel.localPosition - bigWheelOrigin.localPosition;
         planesDestroyed = 0;
 
+        InitPlaneValues();
+        Debug.Log("MaxHP: " + planeMaxHP);
+        Debug.Log("MaxFuel: " + planeMaxFuel);
+        Debug.Log("AmmoMult: " + ammoMult);
+        Debug.Log("RotationSpeed: " + planeRotationSpeed);
         planeFuel = planeMaxFuel; planeHP = planeMaxHP;
         planeHP = 10;
         UIManager.healthFuelUI.UpdateUI(planeHP, planeMaxHP, planeFuel, planeMaxFuel);
@@ -257,6 +264,15 @@ public class PlaneControllerV2 : MonoBehaviour
             if (planeFuel < 0) TakeDamage(1000);
             TakeDamage(Time.deltaTime * outOfBoundsDamage);
         }
+    }
+
+    void InitPlaneValues()
+    {
+        PlaneManager.instance.GetPlaneUgradedValues(planeIndex, out int planeMaxHP, out int planeMaxFuel, out float ammoMult, out float planeRotationSpeed);
+        this.planeMaxHP = planeMaxHP;
+        this.planeMaxFuel = planeMaxFuel;
+        this.ammoMult = ammoMult;
+        this.planeRotationSpeed = planeRotationSpeed;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
