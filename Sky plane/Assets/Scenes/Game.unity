@@ -9711,7 +9711,7 @@ MonoBehaviour:
   audioSource1: {fileID: 1642694995}
   audioSource2: {fileID: 1642694994}
   volumeMult1: 0.2
-  volumeMult2: 0.15
+  volumeMult2: 0.2
 --- !u!61 &1642694999
 BoxCollider2D:
   m_ObjectHideFlags: 0

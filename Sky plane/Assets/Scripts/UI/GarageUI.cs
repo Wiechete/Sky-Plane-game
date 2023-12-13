@@ -56,22 +56,27 @@ public class GarageUI : MonoBehaviour
     private void UpgradeButtonHP()
     {
         PlaneManager.UpgradePlane(selectedPlaneIndex, PlaneUpgrade.HP);
+        AudioManager.PlaySound(AudioManager.Sound.ButtonUI);
     }
     private void UpgradeButtonFuel()
     {
         PlaneManager.UpgradePlane(selectedPlaneIndex, PlaneUpgrade.Fuel);
+        AudioManager.PlaySound(AudioManager.Sound.ButtonUI);
     }
     private void UpgradeButtonAmmo()
     {
         PlaneManager.UpgradePlane(selectedPlaneIndex, PlaneUpgrade.Ammo);
+        AudioManager.PlaySound(AudioManager.Sound.ButtonUI);
     }
     private void UpgradeButtonRotationSpeed()
     {
         PlaneManager.UpgradePlane(selectedPlaneIndex, PlaneUpgrade.RotationSpeed);
+        AudioManager.PlaySound(AudioManager.Sound.ButtonUI);
     }
 
     private void NextButton()
     {
+        AudioManager.PlaySound(AudioManager.Sound.ButtonUI);
         planeVisuals[selectedPlaneIndex].SetActive(false);
         selectedPlaneIndex--;
         if (selectedPlaneIndex < 0)
@@ -80,6 +85,7 @@ public class GarageUI : MonoBehaviour
     }
     private void PreviousButton()
     {
+        AudioManager.PlaySound(AudioManager.Sound.ButtonUI);
         planeVisuals[selectedPlaneIndex].SetActive(false);
         selectedPlaneIndex++;
         if (selectedPlaneIndex > PlaneManager.instance.maxPlaneIndex)
@@ -89,6 +95,7 @@ public class GarageUI : MonoBehaviour
 
     private void SelectPlane()
     {
+
         planeVisuals[selectedPlaneIndex].SetActive(true);
         UpdateCostTexts();
     }
