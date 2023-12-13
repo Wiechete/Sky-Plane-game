@@ -30,7 +30,7 @@ public class GarageUI : MonoBehaviour
 
     private GameObject UIGameObject;
 
-    public static int selectedPlaneIndex;
+    public static int selectedPlaneIndex = 0;
     void Awake()
     {
         UIGameObject = transform.GetChild(0).gameObject;

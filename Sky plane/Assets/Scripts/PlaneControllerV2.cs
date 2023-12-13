@@ -82,7 +82,7 @@ public class PlaneControllerV2 : MonoBehaviour
         Debug.Log("AmmoMult: " + ammoMult);
         Debug.Log("RotationSpeed: " + planeRotationSpeed);
         planeFuel = planeMaxFuel; planeHP = planeMaxHP;
-        planeHP = 10;
+        //planeHP = 10;
         UIManager.healthFuelUI.UpdateUI(planeHP, planeMaxHP, planeFuel, planeMaxFuel);
     }
 
