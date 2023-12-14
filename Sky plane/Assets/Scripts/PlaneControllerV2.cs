@@ -82,7 +82,7 @@ public class PlaneControllerV2 : MonoBehaviour
         Debug.Log("AmmoMult: " + ammoMult);
         Debug.Log("RotationSpeed: " + planeRotationSpeed);
         planeFuel = planeMaxFuel; planeHP = planeMaxHP;
-        planeHP = 10;
+        //planeHP = 10;
         UIManager.healthFuelUI.UpdateUI(planeHP, planeMaxHP, planeFuel, planeMaxFuel);
     }
 
@@ -93,7 +93,7 @@ public class PlaneControllerV2 : MonoBehaviour
         float volume1 = volumeMult1 * AudioManager.sfxVolume * AudioManager.masterVolume * Mathf.Max(1 - horizontal, 1 - (currentSpeed / planeMaxSpeed));
         float volume2 = (currentSpeed / planeMaxSpeed) * volumeMult2 * AudioManager.sfxVolume * horizontal * AudioManager.masterVolume;
 
-        float maxVolumeChange = 0.005f;
+        float maxVolumeChange = 0.003f;
 
         volume1 = Mathf.Clamp(volume1, audioSource1.volume - maxVolumeChange, audioSource1.volume + maxVolumeChange);
         volume2 = Mathf.Clamp(volume2, audioSource2.volume - maxVolumeChange, audioSource2.volume + maxVolumeChange);

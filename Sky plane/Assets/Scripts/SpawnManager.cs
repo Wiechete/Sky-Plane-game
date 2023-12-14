@@ -36,9 +36,13 @@ public class SpawnManager : MonoBehaviour
     public float enemyPlanesCooldown;
     public float cloudsCooldown;
 
+    public CameraLookAt cameraLookAtPoint;
+
     private void Start()
     {
-        //planeController = Instantiate(planesPrefabs[GarageUI.selectedPlaneIndex], transform.parent);
+        planeController = Instantiate(planesPrefabs[GarageUI.selectedPlaneIndex], transform.parent);
+        planeController.gameObject.SetActive(true);
+        cameraLookAtPoint.playerPlane = planeController;
 
         StartCoroutine("SpawnIslandsCoroutine");
         StartCoroutine("SpawnBalloonsCoroutine");
