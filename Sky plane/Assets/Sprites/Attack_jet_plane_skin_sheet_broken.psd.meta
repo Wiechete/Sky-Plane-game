@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a2faf7e964ecab843a4c515b800a94b3
+guid: 17c579fee2f015449adba9ec935d1464
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -119,8 +119,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04bd868e1961e9f49b531a2d6b1882e5
-      internalID: 1896437474
+      spriteID: 0bcd377918b969d4fa37c4280cad57fa
+      internalID: -223167062
       vertices: []
       indices: 
       edges: []
@@ -129,10 +129,10 @@ TextureImporter:
       name: Attack_jet_plane_skin_sheet_broken_1
       rect:
         serializedVersion: 2
-        x: 1068
-        y: 592
-        width: 642
-        height: 455
+        x: 1064
+        y: 602
+        width: 678
+        height: 445
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7430bf125d1f54b49add6a77b656d110
-      internalID: -2142147912
+      spriteID: 4965b6472a61f0c4b9d4ad56cb0fb225
+      internalID: 801289165
       vertices: []
       indices: 
       edges: []
@@ -153,7 +153,7 @@ TextureImporter:
         x: 868
         y: 29
         width: 629
-        height: 517
+        height: 423
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,8 +161,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 771caa97e9d91e94fa6bcc60a53d1cef
-      internalID: 1543841148
+      spriteID: ae386b3cc4b43984c9f301abaaf6e32e
+      internalID: 925138280
       vertices: []
       indices: 
       edges: []
@@ -178,9 +178,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Attack_jet_plane_skin_sheet_broken_0: 1896437474
-      Attack_jet_plane_skin_sheet_broken_1: -2142147912
-      Attack_jet_plane_skin_sheet_broken_2: 1543841148
+      Attack_jet_plane_skin_sheet_broken_0: -223167062
+      Attack_jet_plane_skin_sheet_broken_1: 801289165
+      Attack_jet_plane_skin_sheet_broken_2: 925138280
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 1
