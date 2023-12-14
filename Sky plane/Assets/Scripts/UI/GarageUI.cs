@@ -25,8 +25,12 @@ public class GarageUI : MonoBehaviour
 
 
     [SerializeField] private GameObject[] planeVisuals;
+    [SerializeField] private GameObject[] lockedPlaneVisuals;
+    [SerializeField] private GameObject lockedPlaneUpgradePanel;
+    [SerializeField] private TMP_Text planePriceText;
 
-    [SerializeField] private Button closeGarageButton;
+    [SerializeField] private Button garageButton;
+    [SerializeField] private TMP_Text garageButtonText;
 
     private GameObject UIGameObject;
 
@@ -41,7 +45,7 @@ public class GarageUI : MonoBehaviour
         upgradeButtonRotationSpeed.onClick.AddListener(UpgradeButtonRotationSpeed);
         nextPlaneButton.onClick.AddListener(NextButton);
         previousPlaneButton.onClick.AddListener(PreviousButton);
-        closeGarageButton.onClick.AddListener(() => { 
+        garageButton.onClick.AddListener(() => { 
             AudioManager.PlaySound(AudioManager.Sound.ButtonUI);
             CloseUI();
         });

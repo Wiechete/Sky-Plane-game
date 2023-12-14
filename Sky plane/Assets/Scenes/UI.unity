@@ -2443,8 +2443,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 15}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0, y: 19.3}
+  m_SizeDelta: {x: 189.1, y: 103.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &400376732
 MonoBehaviour:
@@ -2510,7 +2510,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -441993084, guid: 624af4f76027d884eae1cd003eef0df1, type: 3}
+  m_Sprite: {fileID: -1131494215, guid: 30a3f18ae5b73504b9e7c958d9f82650, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2931,6 +2931,8 @@ MonoBehaviour:
   planesFuelUpdateIndex: 00000000000000000000000000000000
   planesAmmoUpdateIndex: 00000000000000000000000000000000
   planesRotationSpeedUpdateIndex: 00000000000000000000000000000000
+  planesPrices: 00000000000000000000000000000000
+  planesUnlocked: 01000000
 --- !u!4 &463453740
 Transform:
   m_ObjectHideFlags: 0
@@ -7916,8 +7918,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 4.7499833, y: 0}
+  m_SizeDelta: {x: -9.500033, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1206136257
 MonoBehaviour:
@@ -7948,8 +7950,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -10437,7 +10439,11 @@ MonoBehaviour:
   - {fileID: 1819360285}
   - {fileID: 706695909}
   - {fileID: 563425870}
-  closeGarageButton: {fileID: 400376732}
+  lockedPlaneVisuals: []
+  lockedPlaneUpgradePanel: {fileID: 411717831}
+  planePriceText: {fileID: 0}
+  garageButton: {fileID: 400376732}
+  garageButtonText: {fileID: 1206136257}
 --- !u!1 &1535789776
 GameObject:
   m_ObjectHideFlags: 0

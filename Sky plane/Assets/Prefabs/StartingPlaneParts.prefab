@@ -677,7 +677,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8197275673954228321}
   m_Layer: 0
-  m_Name: PlaneParts
+  m_Name: StartingPlaneParts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

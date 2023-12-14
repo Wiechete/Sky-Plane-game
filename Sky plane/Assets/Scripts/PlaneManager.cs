@@ -18,6 +18,8 @@ public class PlaneManager : MonoBehaviour
     public int[] planesAmmoUpdateIndex;
     public int[] planesRotationSpeedUpdateIndex;
 
+    public int[] planesPrices;
+    public bool[] planesUnlocked;
     private void Awake()
     {
         Debug.Log(instance);

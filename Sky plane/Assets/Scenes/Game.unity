@@ -9707,7 +9707,7 @@ MonoBehaviour:
   maxHeight: 40
   outOfBoundsDamage: 8
   explosion: {fileID: 5157727756496537319, guid: d1c689f4e059a60478428243ef73a8bb, type: 3}
-  planeParts: {fileID: 8197275673954228322, guid: 7b7eac0fff33282489db4fdb9aaa4567, type: 3}
+  planeParts: {fileID: 9085071226980472807, guid: ee70939670a64d94a8396610c7d87c2c, type: 3}
   audioSource1: {fileID: 1642694995}
   audioSource2: {fileID: 1642694994}
   volumeMult1: 0.2
@@ -10535,7 +10535,7 @@ MonoBehaviour:
   maxHeight: 40
   outOfBoundsDamage: 8
   explosion: {fileID: 5157727756496537319, guid: d1c689f4e059a60478428243ef73a8bb, type: 3}
-  planeParts: {fileID: 8197275673954228322, guid: 7b7eac0fff33282489db4fdb9aaa4567, type: 3}
+  planeParts: {fileID: 951714326194756142, guid: 1db235179ff6e384785c41f0ffff2443, type: 3}
   audioSource1: {fileID: 1696910021}
   audioSource2: {fileID: 1696910020}
   volumeMult1: 0.15
@@ -11349,7 +11349,7 @@ MonoBehaviour:
   maxHeight: 40
   outOfBoundsDamage: 8
   explosion: {fileID: 5157727756496537319, guid: d1c689f4e059a60478428243ef73a8bb, type: 3}
-  planeParts: {fileID: 8197275673954228322, guid: 7b7eac0fff33282489db4fdb9aaa4567, type: 3}
+  planeParts: {fileID: 4462681578510007069, guid: 6fd48fadc9d8a524c8c1e0c00cb676a0, type: 3}
   audioSource1: {fileID: 1740270301}
   audioSource2: {fileID: 1740270300}
   volumeMult1: 1
