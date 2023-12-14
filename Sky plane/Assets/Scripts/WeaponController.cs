@@ -49,15 +49,16 @@ public class WeaponController : MonoBehaviour
         if(currentWeapon == 2) AudioManager.PlaySound(AudioManager.Sound.RPGShoot);
         if (currentAmmo <= 0 && currentWeapon != 0)
             ChangeWeapon(0);
-        UIManager.ammoUI.UpdateUI(currentAmmo, weaponsAmmo[currentWeapon]);
+        UIManager.ammoUI.UpdateUI(currentAmmo, weaponsAmmo[currentWeapon] * GetComponent<PlaneControllerV2>().ammoMult);
     }
 
     public void ChangeWeapon(int index){
 
         weaponsTr[currentWeapon].gameObject.SetActive(false);
         currentWeapon = index;
-        currentAmmo = weaponsAmmo[currentWeapon];
+        int maxAmmo = weaponsAmmo[currentWeapon] * GetComponent<PlaneControllerV2>().ammoMult;
+        currentAmmo = maxAmmo;
         weaponsTr[currentWeapon].gameObject.SetActive(true);
-        UIManager.ammoUI.UpdateUI(currentAmmo, weaponsAmmo[currentWeapon]);
+        UIManager.ammoUI.UpdateUI(currentAmmo, maxAmmo);
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System;
 
 public class GarageUI : MonoBehaviour
 {
@@ -35,6 +36,7 @@ public class GarageUI : MonoBehaviour
     private GameObject UIGameObject;
 
     public static int selectedPlaneIndex = 0;
+    bool openedThisFrame = false;
     void Awake()
     {
         UIGameObject = transform.GetChild(0).gameObject;
@@ -53,8 +55,9 @@ public class GarageUI : MonoBehaviour
 
     void Update()
     {
-        if (UIGameObject.activeSelf && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Escape)))
-            CloseUI();
+        //if (!openedThisFrame && UIGameObject.activeSelf && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Escape)))
+        //    CloseUI();
+        //openedThisFrame = false;
     }
 
     private void UpgradeButtonHP()
@@ -82,6 +85,7 @@ public class GarageUI : MonoBehaviour
     {
         AudioManager.PlaySound(AudioManager.Sound.ButtonUI);
         planeVisuals[selectedPlaneIndex].SetActive(false);
+        lockedPlaneVisuals[selectedPlaneIndex].SetActive(false);
         selectedPlaneIndex--;
         if (selectedPlaneIndex < 0)
             selectedPlaneIndex = PlaneManager.instance.maxPlaneIndex;
@@ -91,6 +95,7 @@ public class GarageUI : MonoBehaviour
     {
         AudioManager.PlaySound(AudioManager.Sound.ButtonUI);
         planeVisuals[selectedPlaneIndex].SetActive(false);
+        lockedPlaneVisuals[selectedPlaneIndex].SetActive(false);
         selectedPlaneIndex++;
         if (selectedPlaneIndex > PlaneManager.instance.maxPlaneIndex)
             selectedPlaneIndex = 0;
@@ -99,13 +104,23 @@ public class GarageUI : MonoBehaviour
 
     private void SelectPlane()
     {
-
-        planeVisuals[selectedPlaneIndex].SetActive(true);
-        UpdateCostTexts();
+        if (PlaneManager.instance.planesUnlocked[selectedPlaneIndex]){
+            lockedPlaneUpgradePanel.SetActive(false);
+            garageButtonText.text = "Start";
+            planeVisuals[selectedPlaneIndex].SetActive(true);
+            UpdateCostTexts();
+        }
+        else{
+            lockedPlaneVisuals[selectedPlaneIndex].SetActive(true);
+            lockedPlaneUpgradePanel.SetActive(true);
+            planePriceText.text = PlaneManager.instance.planesPrices[selectedPlaneIndex].ToString();
+            garageButtonText.text = "Unlock";
+        }        
     }
 
     public void OpenUI()
     {
+        openedThisFrame = true;
         UIGameObject.SetActive(true);
         SelectPlane();
     }
@@ -134,8 +149,18 @@ public class GarageUI : MonoBehaviour
 
     void CloseUI()
     {
-        UIGameObject.SetActive(false);
         AudioManager.PlaySound(AudioManager.Sound.ButtonUI);
-        SceneManager.LoadScene("Game", LoadSceneMode.Additive);
+        if (PlaneManager.instance.planesUnlocked[selectedPlaneIndex]){
+            UIGameObject.SetActive(false);            
+            SceneManager.LoadScene("Game", LoadSceneMode.Additive);
+        }
+        else{
+            if (PlaneManager.instance.UnlockPlane(selectedPlaneIndex)){
+                lockedPlaneVisuals[selectedPlaneIndex].SetActive(false);
+                SelectPlane();
+            }
+                
+        }
+        
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlaneControllerV2 : MonoBehaviour
 {
-    [SerializeField] private int planeIndex;
+    public int planeIndex;
 
     [SerializeField] private float planeInitialSpeed;
     [SerializeField] private AnimationCurve planePower;
@@ -48,7 +48,7 @@ public class PlaneControllerV2 : MonoBehaviour
 
     [SerializeField] private float planeHP;
     [SerializeField] private int planeMaxHP;
-    public float ammoMult;
+    public int ammoMult;
 
     [SerializeField] private float minHeight;
     [SerializeField] private float maxHeight;
@@ -82,7 +82,6 @@ public class PlaneControllerV2 : MonoBehaviour
         Debug.Log("AmmoMult: " + ammoMult);
         Debug.Log("RotationSpeed: " + planeRotationSpeed);
         planeFuel = planeMaxFuel; planeHP = planeMaxHP;
-        //planeHP = 10;
         UIManager.healthFuelUI.UpdateUI(planeHP, planeMaxHP, planeFuel, planeMaxFuel);
     }
 
@@ -268,7 +267,7 @@ public class PlaneControllerV2 : MonoBehaviour
 
     void InitPlaneValues()
     {
-        PlaneManager.instance.GetPlaneUgradedValues(planeIndex, out int planeMaxHP, out int planeMaxFuel, out float ammoMult, out float planeRotationSpeed);
+        PlaneManager.instance.GetPlaneUgradedValues(planeIndex, out int planeMaxHP, out int planeMaxFuel, out int ammoMult, out float planeRotationSpeed);
         this.planeMaxHP = planeMaxHP;
         this.planeMaxFuel = planeMaxFuel;
         this.ammoMult = ammoMult;
@@ -296,6 +295,18 @@ public class PlaneControllerV2 : MonoBehaviour
             TakeDamage(30);
             rb.AddForce((transform.position - collision.transform.position) * 100, ForceMode2D.Force);
             enemyController.Explode();
+        }
+        if(collision.tag == "Garage")
+        {
+            UIManager.enterGarageUI.OpenUI();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Garage")
+        {
+            UIManager.enterGarageUI.CloseUI();
         }
     }
 

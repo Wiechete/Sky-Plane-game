@@ -1,4 +1,3 @@
-using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +16,7 @@ public class SpawnManager : MonoBehaviour
     public Transform cloudsParent;
     public Transform balloonsParent;
     public Transform enemiesParent;
+    public Transform planeParent;
 
     List<GameObject> islands = new List<GameObject>();
     List<GameObject> clouds = new List<GameObject>();
@@ -40,7 +40,7 @@ public class SpawnManager : MonoBehaviour
 
     private void Start()
     {
-        planeController = Instantiate(planesPrefabs[GarageUI.selectedPlaneIndex], transform.parent);
+        planeController = Instantiate(planesPrefabs[GarageUI.selectedPlaneIndex], planeParent);
         planeController.gameObject.SetActive(true);
         cameraLookAtPoint.playerPlane = planeController;
 
@@ -87,7 +87,7 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnIsland()
     {
-        if (planeController.transform.position.x < -5) return;
+        if (planeController.transform.position.x < 14) return;
         for (int i = 0; i < 5; i++)
         {
             Vector3 position = GetSpawnPosition();
@@ -104,7 +104,7 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnBalloon()
     {
-        if (planeController.transform.position.x < -5) return;
+        if (planeController.transform.position.x < 14) return;
         for (int i = 0; i < 5; i++)
         {
             Vector3 position = GetSpawnPosition();
@@ -119,7 +119,7 @@ public class SpawnManager : MonoBehaviour
         }
     }
     void SpawnEnemyPlane(){
-        if (planeController.transform.position.x < 0) return;
+        if (planeController.transform.position.x < 25) return;
 
         GameObject prefab = enemyPlanePrefabs[Random.Range(0, enemyPlanePrefabs.Length)];
         Vector3 position = new Vector3(planeController.transform.position.x - 10, Random.Range(0, 30));
@@ -130,7 +130,7 @@ public class SpawnManager : MonoBehaviour
     }
     void SpawnCloud()
     {
-        if (planeController.transform.position.x < -5) return;
+        if (planeController.transform.position.x < 14) return;
         for (int i = 0; i < 5; i++)
         {
             Vector3 position = GetSpawnPosition();
@@ -147,9 +147,7 @@ public class SpawnManager : MonoBehaviour
 
     Vector3 GetSpawnPosition()
     {
-        Vector3 position = new Vector2(Random.Range(minPosition.x, maxPosition.x), Random.Range(minPosition.y, maxPosition.y));
-        position += planeController.transform.position;
-        if (position.y < -6) position.y = -6 + Random.Range(0, 30);
+        Vector3 position = new Vector2(Random.Range(minPosition.x, maxPosition.x) + planeController.transform.position.x, Random.Range(-6, 36)); 
         return position;
     }
 

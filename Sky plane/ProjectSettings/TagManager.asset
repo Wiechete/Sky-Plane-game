@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Border
+  - Garage
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Balloon
   - EnemyPlanes
   - Clouds
-  - 
+  - Garage
   - 
   - 
   - 

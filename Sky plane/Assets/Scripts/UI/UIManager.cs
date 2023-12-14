@@ -25,6 +25,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private MoneyUI _moneyUI;
     public static MoneyUI moneyUI;
 
+    [SerializeField] private EnterGarageUI _enterGarageUI;
+    public static EnterGarageUI enterGarageUI;
+
 
 
     void Awake()
@@ -36,6 +39,7 @@ public class UIManager : MonoBehaviour
         tutorialUI = _tutorialUI;
         garageUI = _garageUI;
         moneyUI = _moneyUI;
+        enterGarageUI = _enterGarageUI;
     }
 
 }
