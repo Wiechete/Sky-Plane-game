@@ -48,8 +48,6 @@ public class ScoreManager : MonoBehaviour
         yield return new WaitWhile(() => done == false);
     }
 
-
-
     public static int AddNewScore(int score)
     {
         int currentRecord = previousBest;
