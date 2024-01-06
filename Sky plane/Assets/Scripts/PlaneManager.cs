@@ -8,7 +8,7 @@ public class PlaneManager : MonoBehaviour
     public static PlaneManager instance;
 
     public int playerMoney { get { return instance._playerMoney; } private set { _playerMoney = value; UIManager.moneyUI.UpdateUI(value); } }
-    private int _playerMoney = 1000;
+    private int _playerMoney = 0;
 
     public PlaneUpdatesValues[] planesUpgrades;
     public int maxPlaneIndex;

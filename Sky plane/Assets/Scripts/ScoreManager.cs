@@ -28,7 +28,7 @@ public class ScoreManager : MonoBehaviour
     {
         bool done = false;
 
-        LootLockerSDKManager.StartGuestSession(SystemInfo.deviceUniqueIdentifier, (response) =>
+        LootLockerSDKManager.StartGuestSession((response) =>
         {
             if (response.success){
                 Debug.Log("Player was logged in");
